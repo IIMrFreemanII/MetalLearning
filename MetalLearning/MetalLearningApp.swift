@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import Inject
 
 @main
 struct MetalLearningApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  @ObserveInjection private var inject
+  
+  init() {
+    Renderer.initialize()
+  }
+  
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
+        .enableInjection()
+        .ignoresSafeArea()
     }
+    .windowStyle(.hiddenTitleBar)
+  }
 }
