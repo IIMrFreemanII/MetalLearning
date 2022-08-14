@@ -4,10 +4,12 @@ typealias DrawCallback = ((MTKView) -> Void)
 typealias ResizeCallback = ((MTKView, CGSize) -> Void)
 
 class ViewRenderer: NSObject {
+  var metalView: MTKView
   var handleDraw: DrawCallback?
   var handleResize: ResizeCallback?
   
   init(metalView: MTKView, handleDraw: DrawCallback?, handleResize: ResizeCallback?) {
+    self.metalView = metalView
     self.handleDraw = handleDraw
     self.handleResize = handleResize
     

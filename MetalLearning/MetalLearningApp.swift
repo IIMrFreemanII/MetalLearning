@@ -20,7 +20,9 @@ struct MetalLearningApp: App {
     WindowGroup {
       ContentView()
         .enableInjection()
-        .ignoresSafeArea()
+    }
+    .commands {
+      SidebarCommands()
     }
     .windowStyle(.hiddenTitleBar)
   }

@@ -16,6 +16,14 @@
 		15FD5B3528A7B881001F3ADF /* Default.metal in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3428A7B881001F3ADF /* Default.metal */; };
 		15FD5B3828A7B9D7001F3ADF /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 15FD5B3728A7B9D7001F3ADF /* Inject */; };
 		15FD5B3A28A83235001F3ADF /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3928A83235001F3ADF /* Renderer.swift */; };
+		15FD5B4028A8F218001F3ADF /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3D28A8F218001F3ADF /* Formatter.swift */; };
+		15FD5B4628A90C5C001F3ADF /* Demo1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B4528A90C5C001F3ADF /* Demo1.swift */; };
+		15FD5B4C28A92ACF001F3ADF /* NumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B4B28A92ACF001F3ADF /* NumberField.swift */; };
+		15FD5B5028A93698001F3ADF /* Number2Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B4F28A93698001F3ADF /* Number2Field.swift */; };
+		15FD5B5228A936B0001F3ADF /* Number3Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5128A936B0001F3ADF /* Number3Field.swift */; };
+		15FD5B5428A936C0001F3ADF /* Number4Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5328A936C0001F3ADF /* Number4Field.swift */; };
+		15FD5B5628A936D9001F3ADF /* Number3x3Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5528A936D9001F3ADF /* Number3x3Field.swift */; };
+		15FD5B5828A936ED001F3ADF /* Number4x4Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5728A936ED001F3ADF /* Number4x4Field.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +37,14 @@
 		15FD5B3128A7B7D1001F3ADF /* ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRenderer.swift; sourceTree = "<group>"; };
 		15FD5B3428A7B881001F3ADF /* Default.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Default.metal; sourceTree = "<group>"; };
 		15FD5B3928A83235001F3ADF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		15FD5B3D28A8F218001F3ADF /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		15FD5B4528A90C5C001F3ADF /* Demo1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1.swift; sourceTree = "<group>"; };
+		15FD5B4B28A92ACF001F3ADF /* NumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberField.swift; sourceTree = "<group>"; };
+		15FD5B4F28A93698001F3ADF /* Number2Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number2Field.swift; sourceTree = "<group>"; };
+		15FD5B5128A936B0001F3ADF /* Number3Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number3Field.swift; sourceTree = "<group>"; };
+		15FD5B5328A936C0001F3ADF /* Number4Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number4Field.swift; sourceTree = "<group>"; };
+		15FD5B5528A936D9001F3ADF /* Number3x3Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number3x3Field.swift; sourceTree = "<group>"; };
+		15FD5B5728A936ED001F3ADF /* Number4x4Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number4x4Field.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +80,6 @@
 			children = (
 				15FD5B3028A7B7B3001F3ADF /* Graphics */,
 				15FD5B1E28A7B70A001F3ADF /* MetalLearningApp.swift */,
-				15FD5B2028A7B70A001F3ADF /* ContentView.swift */,
 				15FD5B2228A7B70A001F3ADF /* Assets.xcassets */,
 				15FD5B2728A7B70A001F3ADF /* MetalLearning.entitlements */,
 				15FD5B2428A7B70A001F3ADF /* Preview Content */,
@@ -84,6 +99,9 @@
 		15FD5B2F28A7B76F001F3ADF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				15FD5B4428A90BFE001F3ADF /* Scenes */,
+				15FD5B3B28A8F218001F3ADF /* Fields */,
+				15FD5B2028A7B70A001F3ADF /* ContentView.swift */,
 				15FD5B2D28A7B767001F3ADF /* MetalView.swift */,
 			);
 			path = Views;
@@ -105,6 +123,28 @@
 				15FD5B3428A7B881001F3ADF /* Default.metal */,
 			);
 			path = Shaders;
+			sourceTree = "<group>";
+		};
+		15FD5B3B28A8F218001F3ADF /* Fields */ = {
+			isa = PBXGroup;
+			children = (
+				15FD5B3D28A8F218001F3ADF /* Formatter.swift */,
+				15FD5B4B28A92ACF001F3ADF /* NumberField.swift */,
+				15FD5B4F28A93698001F3ADF /* Number2Field.swift */,
+				15FD5B5128A936B0001F3ADF /* Number3Field.swift */,
+				15FD5B5328A936C0001F3ADF /* Number4Field.swift */,
+				15FD5B5528A936D9001F3ADF /* Number3x3Field.swift */,
+				15FD5B5728A936ED001F3ADF /* Number4x4Field.swift */,
+			);
+			path = Fields;
+			sourceTree = "<group>";
+		};
+		15FD5B4428A90BFE001F3ADF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				15FD5B4528A90C5C001F3ADF /* Demo1.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +225,17 @@
 			files = (
 				15FD5B3228A7B7D1001F3ADF /* ViewRenderer.swift in Sources */,
 				15FD5B2E28A7B767001F3ADF /* MetalView.swift in Sources */,
+				15FD5B5028A93698001F3ADF /* Number2Field.swift in Sources */,
 				15FD5B2128A7B70A001F3ADF /* ContentView.swift in Sources */,
+				15FD5B5428A936C0001F3ADF /* Number4Field.swift in Sources */,
 				15FD5B3528A7B881001F3ADF /* Default.metal in Sources */,
 				15FD5B3A28A83235001F3ADF /* Renderer.swift in Sources */,
+				15FD5B4C28A92ACF001F3ADF /* NumberField.swift in Sources */,
+				15FD5B4628A90C5C001F3ADF /* Demo1.swift in Sources */,
+				15FD5B5628A936D9001F3ADF /* Number3x3Field.swift in Sources */,
+				15FD5B4028A8F218001F3ADF /* Formatter.swift in Sources */,
+				15FD5B5828A936ED001F3ADF /* Number4x4Field.swift in Sources */,
+				15FD5B5228A936B0001F3ADF /* Number3Field.swift in Sources */,
 				15FD5B1F28A7B70A001F3ADF /* MetalLearningApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
