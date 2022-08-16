@@ -20,8 +20,8 @@ struct Number2Field<T: Numeric>: View {
     VStack(alignment: .leading, spacing: label.isEmpty ? 0 : 6) {
       Text(label)
       HStack {
-        NumberField(label: "X", value: $x)
-        NumberField(label: "Y", value: $y)
+        NumberField(value: $x)
+        NumberField(value: $y)
       }
     }
     .enableInjection()

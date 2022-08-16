@@ -37,28 +37,28 @@ struct Number4x4Field<T: Numeric>: View {
     VStack(alignment: .leading, spacing: label.isEmpty ? 0 : 6) {
       Text(label)
       HStack {
-        NumberField(label: "X", value: $x1)
-        NumberField(label: "Y", value: $y1)
-        NumberField(label: "Z", value: $z1)
-        NumberField(label: "W", value: $w1)
+        NumberField(value: $x1)
+        NumberField(value: $y1)
+        NumberField(value: $z1)
+        NumberField(value: $w1)
       }
       HStack {
-        NumberField(label: "X", value: $x2)
-        NumberField(label: "Y", value: $y2)
-        NumberField(label: "Z", value: $z2)
-        NumberField(label: "W", value: $w2)
+        NumberField(value: $x2)
+        NumberField(value: $y2)
+        NumberField(value: $z2)
+        NumberField(value: $w2)
       }
       HStack {
-        NumberField(label: "X", value: $x3)
-        NumberField(label: "Y", value: $y3)
-        NumberField(label: "Z", value: $z3)
-        NumberField(label: "W", value: $w3)
+        NumberField(value: $x3)
+        NumberField(value: $y3)
+        NumberField(value: $z3)
+        NumberField(value: $w3)
       }
       HStack {
-        NumberField(label: "X", value: $x4)
-        NumberField(label: "Y", value: $y4)
-        NumberField(label: "Z", value: $z4)
-        NumberField(label: "W", value: $w4)
+        NumberField(value: $x4)
+        NumberField(value: $y4)
+        NumberField(value: $z4)
+        NumberField(value: $w4)
       }
     }
     .enableInjection()

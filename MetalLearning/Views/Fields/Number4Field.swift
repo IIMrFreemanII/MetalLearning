@@ -22,10 +22,10 @@ struct Number4Field<T: Numeric>: View {
     VStack(alignment: .leading, spacing: label.isEmpty ? 0 : 6) {
       Text(label)
       HStack {
-        NumberField(label: "X", value: $x)
-        NumberField(label: "Y", value: $y)
-        NumberField(label: "Z", value: $z)
-        NumberField(label: "W", value: $z)
+        NumberField(value: $x)
+        NumberField(value: $y)
+        NumberField(value: $z)
+        NumberField(value: $z)
       }
     }
     .enableInjection()

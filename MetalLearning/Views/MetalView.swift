@@ -57,7 +57,7 @@ struct MetalViewRepresentable: ViewRepresentable {
 struct MetalView_Previews: PreviewProvider {
   static var previews: some View {
     VStack {
-      MetalView { _ in }
+      MetalView()
       Text("Metal View")
     }
   }

@@ -80,8 +80,13 @@ struct Demo1: View {
   var body: some View {
     NavigationView {
       List {
-        Section("Other") {
-          Text("Temp")
+        Section("Matrices") {
+          Number4x4Field(
+            label: "Projection",
+            x1: $uniforms.projectionMatrix.columns.0.x, y1: $uniforms.projectionMatrix.columns.0.y, z1: $uniforms.projectionMatrix.columns.0.z, w1: $uniforms.projectionMatrix.columns.0.w,
+            x2: $uniforms.projectionMatrix.columns.1.x, y2: $uniforms.projectionMatrix.columns.1.y, z2: $uniforms.projectionMatrix.columns.1.z, w2: $uniforms.projectionMatrix.columns.1.w,
+            x3: $uniforms.projectionMatrix.columns.2.x, y3: $uniforms.projectionMatrix.columns.2.y, z3: $uniforms.projectionMatrix.columns.2.z, w3: $uniforms.projectionMatrix.columns.2.w,
+            x4: $uniforms.projectionMatrix.columns.3.x, y4: $uniforms.projectionMatrix.columns.3.y, z4: $uniforms.projectionMatrix.columns.3.z, w4: $uniforms.projectionMatrix.columns.3.w)
         }
       }
       .listStyle(.sidebar)

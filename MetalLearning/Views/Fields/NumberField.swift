@@ -12,7 +12,6 @@ import Inject
 struct NumberField<T: Numeric>: View {
   @ObserveInjection private var inject
   
-  let label: String
   @Binding var value: T
   
   func getFormatter() -> Formatter {
@@ -29,9 +28,7 @@ struct NumberField<T: Numeric>: View {
   }
   
   var body: some View {
-    Form {
-      TextField(label, value: $value, formatter: getFormatter())
-    }
+    TextField("", value: $value, formatter: getFormatter())
     .textFieldStyle(.roundedBorder)
     .enableInjection()
   }
@@ -39,6 +36,6 @@ struct NumberField<T: Numeric>: View {
 
 struct NumberField_Previews: PreviewProvider {
   static var previews: some View {
-    NumberField(label: "", value: .constant(0))
+    NumberField(value: .constant(0))
   }
 }

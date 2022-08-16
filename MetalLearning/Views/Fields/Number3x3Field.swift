@@ -29,19 +29,19 @@ struct Number3x3Field<T: Numeric>: View {
     VStack(alignment: .leading, spacing: label.isEmpty ? 0 : 6) {
       Text(label)
       HStack {
-        NumberField(label: "X", value: $x1)
-        NumberField(label: "Y", value: $y1)
-        NumberField(label: "Z", value: $z1)
+        NumberField(value: $x1)
+        NumberField(value: $y1)
+        NumberField(value: $z1)
       }
       HStack {
-        NumberField(label: "X", value: $x2)
-        NumberField(label: "Y", value: $y2)
-        NumberField(label: "Z", value: $z2)
+        NumberField(value: $x2)
+        NumberField(value: $y2)
+        NumberField(value: $z2)
       }
       HStack {
-        NumberField(label: "X", value: $x3)
-        NumberField(label: "Y", value: $y3)
-        NumberField(label: "Z", value: $z3)
+        NumberField(value: $x3)
+        NumberField(value: $y3)
+        NumberField(value: $z3)
       }
     }
     .enableInjection()
