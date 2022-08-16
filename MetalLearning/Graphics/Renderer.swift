@@ -5,6 +5,7 @@ struct Renderer {
   static var commandQueue: MTLCommandQueue!
   static var library: MTLLibrary!
   static var pipelineState: MTLRenderPipelineState!
+  static var depthStencilState: MTLDepthStencilState!
   
   static func initialize() -> Void {
     guard
@@ -17,20 +18,33 @@ struct Renderer {
     
     // create the shader function library
     Self.library = Self.device.makeDefaultLibrary()
-    let vertexFunction = Self.library?.makeFunction(name: "vertex_main")
-    let fragmentFunction =
-    Self.library?.makeFunction(name: "fragment_main")
+    
+    depthStencilState = buildDepthStencilState()
+    pipelineState = buildPipelineState()
+  }
+  
+  static func buildDepthStencilState() -> MTLDepthStencilState? {
+    let descriptor = MTLDepthStencilDescriptor()
+    descriptor.depthCompareFunction = .less
+    descriptor.isDepthWriteEnabled = true
+    return Renderer.device.makeDepthStencilState(
+      descriptor: descriptor)
+  }
+  
+  static func buildPipelineState() -> MTLRenderPipelineState {
+    let vertexFunction = library?.makeFunction(name: "vertex_main")
+    let fragmentFunction = library?.makeFunction(name: "fragment_main")
     
     // create the pipeline state object
     let pipelineDescriptor = MTLRenderPipelineDescriptor()
     pipelineDescriptor.vertexFunction = vertexFunction
     pipelineDescriptor.fragmentFunction = fragmentFunction
     pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+    pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
     pipelineDescriptor.vertexDescriptor = .defaultLayout
     
     do {
-      Self.pipelineState =
-      try Self.device.makeRenderPipelineState(
+      return try Self.device.makeRenderPipelineState(
         descriptor: pipelineDescriptor)
     } catch let error {
       fatalError(error.localizedDescription)

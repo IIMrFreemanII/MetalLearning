@@ -8,33 +8,26 @@
 import MetalKit
 
 class Demo1ViewRenderer : ViewRenderer {
-  lazy var model: Model = Model(device: Renderer.device, name: "train.usd")
-  private var timer: Float = 0
-  private var uniforms = Uniforms()
-  private var params = Params()
-  private var clearColor = MTLClearColor(
-    red: 0.8,
-    green: 0.8,
-    blue: 0.8,
-    alpha: 1.0
-  )
+  private var data = demo1Data
   
   required init(metalView: MTKView) {
     super.init(metalView: metalView)
+    
+    metalView.depthStencilPixelFormat = .depth32Float
   }
   
   override func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
     print("resize")
     let aspect = Float(view.bounds.width) / Float(view.bounds.height)
-    uniforms.projectionMatrix =
+    data.uniforms.projectionMatrix =
       float4x4(
         projectionFov: Float(70).degreesToRadians,
         near: 0.1,
         far: 100,
         aspect: aspect
       )
-    params.width = UInt32(size.width)
-    params.height = UInt32(size.height)
+    data.params.width = UInt32(size.width)
+    data.params.height = UInt32(size.height)
   }
   
   override func draw(in view: MTKView) {
@@ -48,28 +41,29 @@ class Demo1ViewRenderer : ViewRenderer {
       return
     }
     
-    view.clearColor = clearColor
-    timer += 0.005
-    uniforms.viewMatrix = float4x4(translation: [0, 0, -3]).inverse
+    view.clearColor = data.clearColor
+    data.timer += 0.005
+    data.uniforms.viewMatrix = float4x4(translation: [0, 0, -3]).inverse
     
-    model.position.y = -0.6
-    model.rotation.y = sin(timer)
-    uniforms.modelMatrix = model.transform.modelMatrix
+    data.model.position.y = -0.6
+    data.model.rotation.y = sin(data.timer)
+    data.uniforms.modelMatrix = data.model.transform.modelMatrix
     
     //      print("draw")
+    renderEncoder.setDepthStencilState(Renderer.depthStencilState)
     renderEncoder.setRenderPipelineState(Renderer.pipelineState)
     renderEncoder.setVertexBytes(
-      &uniforms,
+      &data.uniforms,
       length: MemoryLayout<Uniforms>.stride,
-      index: 11
+      index: UniformsBuffer.index
     )
     renderEncoder.setFragmentBytes(
-      &params,
+      &data.params,
       length: MemoryLayout<Params>.stride,
-      index: 12
+      index: ParamsBuffer.index
     )
-    renderEncoder.setTriangleFillMode(.lines)
-    model.render(encoder: renderEncoder)
+//    renderEncoder.setTriangleFillMode(.lines)
+    data.model.render(encoder: renderEncoder)
     
     renderEncoder.endEncoding()
     guard let drawable = view.currentDrawable else {

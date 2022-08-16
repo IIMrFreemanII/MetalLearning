@@ -10,13 +10,32 @@ extension MDLVertexDescriptor {
   static var defaultLayout: MDLVertexDescriptor {
     let vertexDescriptor = MDLVertexDescriptor()
     var offset = 0
-    vertexDescriptor.attributes[0] = MDLVertexAttribute(
+    vertexDescriptor.attributes[Position.index] = MDLVertexAttribute(
       name: MDLVertexAttributePosition,
       format: .float3,
-      offset: 0,
-      bufferIndex: 0)
+      offset: offset,
+      bufferIndex: VertexBuffer.index)
     offset += MemoryLayout<float3>.stride
-    vertexDescriptor.layouts[0] = MDLVertexBufferLayout(stride: offset)
+    vertexDescriptor.attributes[Normal.index] = MDLVertexAttribute(
+      name: MDLVertexAttributeNormal,
+      format: .float3,
+      offset: offset,
+      bufferIndex: VertexBuffer.index)
+    offset += MemoryLayout<float3>.stride
+    
+    vertexDescriptor.layouts[VertexBuffer.index] = MDLVertexBufferLayout(stride: offset)
     return vertexDescriptor
+  }
+}
+
+extension BufferIndices {
+  var index: Int {
+    return Int(self.rawValue)
+  }
+}
+
+extension Attributes {
+  var index: Int {
+    return Int(self.rawValue)
   }
 }

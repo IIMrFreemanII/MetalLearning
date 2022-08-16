@@ -1,34 +1,33 @@
 #include <metal_stdlib>
 using namespace metal;
 #import "Common.h"
+#import "ShaderDefs.h"
 
 struct VertexIn {
   float4 position [[attribute(0)]];
-};
-
-struct VertexOut {
-  float4 position [[position]];
+  float3 normal [[attribute(1)]];
 };
 
 vertex VertexOut vertex_main(
                              VertexIn in [[stage_in]],
-                             constant Uniforms &uniforms [[buffer(11)]]
+                             constant Uniforms &uniforms [[buffer(UniformsBuffer)]]
                              )
 {
   float4 position =
   uniforms.projectionMatrix * uniforms.viewMatrix * uniforms.modelMatrix * in.position;
+  float3 normal = in.normal;
+  
   VertexOut out {
-    .position = position
+    .position = position,
+    .normal = normal
   };
   return out;
 }
 
 fragment float4 fragment_main(
-                              constant Params &params [[buffer(12)]],
+                              constant Params &params [[buffer(ParamsBuffer)]],
                               VertexOut in [[stage_in]]
                               )
 {
-  float color;
-  in.position.x < params.width * 0.5 ? color = 0 : color = 1;
-  return float4(color, color, color, 1);
+  return float4(in.normal, 1);
 }

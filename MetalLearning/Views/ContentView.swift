@@ -12,15 +12,14 @@ import Inject
 struct ContentView: View {
   @ObserveInjection private var inject
   
-  let renderers: [ViewRenderer.Type] = [Demo1ViewRenderer.self]
+  @State private var isDemo1Active = true
   
   var body: some View {
     NavigationView {
       List {
         Section("Scenes") {
-          ForEach(renderers.indices, id: \.self) { i in
-            let name = "\(renderers[i])"
-            NavigationLink(name, destination: MetalView(viewRendererType: renderers[i]).ignoresSafeArea())
+          NavigationLink("Demo1", isActive: $isDemo1Active) {
+            Demo1()
           }
         }
       }
