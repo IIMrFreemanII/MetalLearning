@@ -1,25 +1,27 @@
 import SwiftUI
 import MetalKit
+import Inject
 
 struct MetalView: View {
-  @State private var metalView = MTKView()
-  @State private var renderer: ViewRenderer?
+  @ObserveInjection private var inject
   
-  var handleDraw: DrawCallback?
-  var handleResize: ResizeCallback?
+  @State private var metalView = MTKView()
+  @State private var viewRenderer: ViewRenderer?
+  var viewRendererType: ViewRenderer.Type
   
   var body: some View {
-    renderer?.handleDraw = handleDraw
-    renderer?.handleResize = handleResize
-    
-    return MetalViewRepresentable(metalView: $metalView)
+    MetalViewRepresentable(metalView: $metalView)
       .onAppear {
-        renderer = ViewRenderer(
-          metalView: metalView,
-          handleDraw: handleDraw,
-          handleResize: handleResize
+        viewRenderer = viewRendererType.init(
+          metalView: metalView
         )
       }
+      .onReceive(inject.observer.objectWillChange) {
+        viewRenderer = viewRendererType.init(
+          metalView: metalView
+        )
+      }
+      .enableInjection()
   }
 }
 
@@ -34,6 +36,7 @@ struct MetalViewRepresentable: ViewRepresentable {
   
 #if os(macOS)
   func makeNSView(context: Context) -> some NSView {
+    print("makeMetalView")
     return metalView
   }
   func updateNSView(_ uiView: NSViewType, context: Context) {
@@ -41,6 +44,7 @@ struct MetalViewRepresentable: ViewRepresentable {
   }
 #elseif os(iOS)
   func makeUIView(context: Context) -> MTKView {
+    print("makeMetalView")
     return metalView
   }
   
@@ -54,11 +58,11 @@ struct MetalViewRepresentable: ViewRepresentable {
   }
 }
 
-struct MetalView_Previews: PreviewProvider {
-  static var previews: some View {
-    VStack {
-      MetalView()
-      Text("Metal View")
-    }
-  }
-}
+//struct MetalView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    VStack {
+//      MetalView()
+//      Text("Metal View")
+//    }
+//  }
+//}

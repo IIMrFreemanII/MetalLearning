@@ -7,23 +7,27 @@
 
 import SwiftUI
 import MetalKit
+import Inject
 
 struct ContentView: View {
-  let scenes = [Demo1.self]
+  @ObserveInjection private var inject
+  
+  let renderers: [ViewRenderer.Type] = [Demo1ViewRenderer.self]
   
   var body: some View {
     NavigationView {
       List {
         Section("Scenes") {
-          ForEach(scenes.indices, id: \.self) { i in
-            let name = "\(scenes[i])"
-            NavigationLink(name, destination: scenes[i].init)
+          ForEach(renderers.indices, id: \.self) { i in
+            let name = "\(renderers[i])"
+            NavigationLink(name, destination: MetalView(viewRendererType: renderers[i]).ignoresSafeArea())
           }
         }
       }
       .listStyle(.sidebar)
-      Text("Empty")
+      Text("Select scene")
     }
+    .enableInjection()
   }
 }
 

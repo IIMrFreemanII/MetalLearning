@@ -17,7 +17,6 @@
 		15FD5B3828A7B9D7001F3ADF /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 15FD5B3728A7B9D7001F3ADF /* Inject */; };
 		15FD5B3A28A83235001F3ADF /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3928A83235001F3ADF /* Renderer.swift */; };
 		15FD5B4028A8F218001F3ADF /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3D28A8F218001F3ADF /* Formatter.swift */; };
-		15FD5B4628A90C5C001F3ADF /* Demo1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B4528A90C5C001F3ADF /* Demo1.swift */; };
 		15FD5B4C28A92ACF001F3ADF /* NumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B4B28A92ACF001F3ADF /* NumberField.swift */; };
 		15FD5B5028A93698001F3ADF /* Number2Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B4F28A93698001F3ADF /* Number2Field.swift */; };
 		15FD5B5228A936B0001F3ADF /* Number3Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5128A936B0001F3ADF /* Number3Field.swift */; };
@@ -29,6 +28,7 @@
 		15FD5B6128AAE686001F3ADF /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6028AAE686001F3ADF /* Transform.swift */; };
 		15FD5B6328AAE75B001F3ADF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6228AAE75B001F3ADF /* Model.swift */; };
 		15FD5B6628AAE822001F3ADF /* train.usd in Resources */ = {isa = PBXBuildFile; fileRef = 15FD5B6528AAE822001F3ADF /* train.usd */; };
+		15FD5B6C28ABC502001F3ADF /* Demo1ViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +43,6 @@
 		15FD5B3428A7B881001F3ADF /* Default.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Default.metal; sourceTree = "<group>"; };
 		15FD5B3928A83235001F3ADF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		15FD5B3D28A8F218001F3ADF /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		15FD5B4528A90C5C001F3ADF /* Demo1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1.swift; sourceTree = "<group>"; };
 		15FD5B4B28A92ACF001F3ADF /* NumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberField.swift; sourceTree = "<group>"; };
 		15FD5B4F28A93698001F3ADF /* Number2Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number2Field.swift; sourceTree = "<group>"; };
 		15FD5B5128A936B0001F3ADF /* Number3Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number3Field.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		15FD5B6028AAE686001F3ADF /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		15FD5B6228AAE75B001F3ADF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		15FD5B6528AAE822001F3ADF /* train.usd */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.usd; sourceTree = "<group>"; };
+		15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1ViewRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,6 @@
 		15FD5B2F28A7B76F001F3ADF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				15FD5B4428A90BFE001F3ADF /* Scenes */,
 				15FD5B3B28A8F218001F3ADF /* Fields */,
 				15FD5B2028A7B70A001F3ADF /* ContentView.swift */,
 				15FD5B2D28A7B767001F3ADF /* MetalView.swift */,
@@ -127,6 +126,7 @@
 			children = (
 				15FD5B3328A7B864001F3ADF /* Shaders */,
 				15FD5B3128A7B7D1001F3ADF /* ViewRenderer.swift */,
+				15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */,
 				15FD5B3928A83235001F3ADF /* Renderer.swift */,
 				15FD5B5E28AAE5EE001F3ADF /* VertexDescriptor.swift */,
 			);
@@ -154,14 +154,6 @@
 				15FD5B5728A936ED001F3ADF /* Number4x4Field.swift */,
 			);
 			path = Fields;
-			sourceTree = "<group>";
-		};
-		15FD5B4428A90BFE001F3ADF /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				15FD5B4528A90C5C001F3ADF /* Demo1.swift */,
-			);
-			path = Scenes;
 			sourceTree = "<group>";
 		};
 		15FD5B5B28AAE519001F3ADF /* Utility */ = {
@@ -267,7 +259,7 @@
 				15FD5B3A28A83235001F3ADF /* Renderer.swift in Sources */,
 				15FD5B4C28A92ACF001F3ADF /* NumberField.swift in Sources */,
 				15FD5B6328AAE75B001F3ADF /* Model.swift in Sources */,
-				15FD5B4628A90C5C001F3ADF /* Demo1.swift in Sources */,
+				15FD5B6C28ABC502001F3ADF /* Demo1ViewRenderer.swift in Sources */,
 				15FD5B5628A936D9001F3ADF /* Number3x3Field.swift in Sources */,
 				15FD5B4028A8F218001F3ADF /* Formatter.swift in Sources */,
 				15FD5B5828A936ED001F3ADF /* Number4x4Field.swift in Sources */,

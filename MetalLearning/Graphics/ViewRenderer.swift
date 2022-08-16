@@ -1,18 +1,7 @@
 import MetalKit
 
-typealias DrawCallback = ((MTKView) -> Void)
-typealias ResizeCallback = ((MTKView, CGSize) -> Void)
-
 class ViewRenderer: NSObject {
-  var metalView: MTKView
-  var handleDraw: DrawCallback?
-  var handleResize: ResizeCallback?
-  
-  init(metalView: MTKView, handleDraw: DrawCallback?, handleResize: ResizeCallback?) {
-    self.metalView = metalView
-    self.handleDraw = handleDraw
-    self.handleResize = handleResize
-    
+  required init(metalView: MTKView) {
     super.init()
     
     metalView.device = Renderer.device
@@ -30,10 +19,10 @@ extension ViewRenderer: MTKViewDelegate {
     _ view: MTKView,
     drawableSizeWillChange size: CGSize
   ) {
-    handleResize?(view, size)
+    
   }
   
   func draw(in view: MTKView) {
-    handleDraw?(view)
+    
   }
 }
