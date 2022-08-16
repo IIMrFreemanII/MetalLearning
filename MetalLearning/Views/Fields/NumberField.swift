@@ -9,7 +9,7 @@ import SwiftUI
 import Inject
 
 
-struct NumberField<T: Numeric>: View {
+struct NumberField<T: SIMDScalar>: View {
   @ObserveInjection private var inject
   
   @Binding var value: T

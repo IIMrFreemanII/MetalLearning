@@ -8,40 +8,34 @@
 import SwiftUI
 import Inject
 
-struct Number3x3Field<T: Numeric>: View {
+struct Number3x3Field<T: SIMDScalar>: View {
   @ObserveInjection private var inject
   
   let label: String
   
-  @Binding var x1: T
-  @Binding var y1: T
-  @Binding var z1: T
-  
-  @Binding var x2: T
-  @Binding var y2: T
-  @Binding var z2: T
-  
-  @Binding var x3: T
-  @Binding var y3: T
-  @Binding var z3: T
+  @Binding var c0: SIMD3<T>
+  @Binding var c1: SIMD3<T>
+  @Binding var c2: SIMD3<T>
   
   var body: some View {
     VStack(alignment: .leading, spacing: label.isEmpty ? 0 : 6) {
       Text(label)
       HStack {
-        NumberField(value: $x1)
-        NumberField(value: $y1)
-        NumberField(value: $z1)
-      }
-      HStack {
-        NumberField(value: $x2)
-        NumberField(value: $y2)
-        NumberField(value: $z2)
-      }
-      HStack {
-        NumberField(value: $x3)
-        NumberField(value: $y3)
-        NumberField(value: $z3)
+        VStack {
+          NumberField(value: $c0[0])
+          NumberField(value: $c0[1])
+          NumberField(value: $c0[2])
+        }
+        VStack {
+          NumberField(value: $c1[0])
+          NumberField(value: $c1[1])
+          NumberField(value: $c1[2])
+        }
+        VStack {
+          NumberField(value: $c2[0])
+          NumberField(value: $c2[1])
+          NumberField(value: $c2[2])
+        }
       }
     }
     .enableInjection()

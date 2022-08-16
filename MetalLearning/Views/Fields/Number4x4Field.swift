@@ -8,57 +8,44 @@
 import SwiftUI
 import Inject
 
-struct Number4x4Field<T: Numeric>: View {
+struct Number4x4Field<T: SIMDScalar>: View {
   @ObserveInjection private var inject
   
   let label: String
   
-  @Binding var x1: T
-  @Binding var y1: T
-  @Binding var z1: T
-  @Binding var w1: T
-  
-  @Binding var x2: T
-  @Binding var y2: T
-  @Binding var z2: T
-  @Binding var w2: T
-  
-  @Binding var x3: T
-  @Binding var y3: T
-  @Binding var z3: T
-  @Binding var w3: T
-  
-  @Binding var x4: T
-  @Binding var y4: T
-  @Binding var z4: T
-  @Binding var w4: T
+  @Binding var c0: SIMD4<T>
+  @Binding var c1: SIMD4<T>
+  @Binding var c2: SIMD4<T>
+  @Binding var c3: SIMD4<T>
   
   var body: some View {
     VStack(alignment: .leading, spacing: label.isEmpty ? 0 : 6) {
       Text(label)
       HStack {
-        NumberField(value: $x1)
-        NumberField(value: $y1)
-        NumberField(value: $z1)
-        NumberField(value: $w1)
-      }
-      HStack {
-        NumberField(value: $x2)
-        NumberField(value: $y2)
-        NumberField(value: $z2)
-        NumberField(value: $w2)
-      }
-      HStack {
-        NumberField(value: $x3)
-        NumberField(value: $y3)
-        NumberField(value: $z3)
-        NumberField(value: $w3)
-      }
-      HStack {
-        NumberField(value: $x4)
-        NumberField(value: $y4)
-        NumberField(value: $z4)
-        NumberField(value: $w4)
+        VStack {
+          NumberField(value: $c0[0])
+          NumberField(value: $c0[1])
+          NumberField(value: $c0[2])
+          NumberField(value: $c0[3])
+        }
+        VStack {
+          NumberField(value: $c1[0])
+          NumberField(value: $c1[1])
+          NumberField(value: $c1[2])
+          NumberField(value: $c1[3])
+        }
+        VStack {
+          NumberField(value: $c2[0])
+          NumberField(value: $c2[1])
+          NumberField(value: $c2[2])
+          NumberField(value: $c2[3])
+        }
+        VStack {
+          NumberField(value: $c3[0])
+          NumberField(value: $c3[1])
+          NumberField(value: $c3[2])
+          NumberField(value: $c3[3])
+        }
       }
     }
     .enableInjection()
