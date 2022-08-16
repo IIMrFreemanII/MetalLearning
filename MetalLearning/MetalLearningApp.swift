@@ -19,6 +19,9 @@ struct MetalLearningApp: App {
   var body: some Scene {
     WindowGroup {
       ContentView()
+        .onReceive(inject.observer.objectWillChange) {
+          Renderer.initialize()
+        }
         .enableInjection()
     }
     .commands {

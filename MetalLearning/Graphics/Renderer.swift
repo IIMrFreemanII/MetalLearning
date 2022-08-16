@@ -4,8 +4,6 @@ struct Renderer {
   static var device: MTLDevice!
   static var commandQueue: MTLCommandQueue!
   static var library: MTLLibrary!
-  static var mesh: MTKMesh!
-  static var vertexBuffer: MTLBuffer!
   static var pipelineState: MTLRenderPipelineState!
   
   static func initialize() -> Void {
@@ -16,23 +14,6 @@ struct Renderer {
     }
     Self.device = device
     Self.commandQueue = commandQueue
-    
-    // create the mesh
-    let allocator = MTKMeshBufferAllocator(device: Self.device)
-    let size: Float = 0.8
-    let mdlMesh = MDLMesh(
-      boxWithExtent: [size, size, size],
-      segments: [1, 1, 1],
-      inwardNormals: false,
-      geometryType: .triangles,
-      allocator: allocator
-    )
-    do {
-      Self.mesh = try MTKMesh(mesh: mdlMesh, device: Self.device)
-    } catch let error {
-      print(error.localizedDescription)
-    }
-    Self.vertexBuffer = Self.mesh.vertexBuffers[0].buffer
     
     // create the shader function library
     Self.library = Self.device.makeDefaultLibrary()
@@ -45,7 +26,8 @@ struct Renderer {
     pipelineDescriptor.vertexFunction = vertexFunction
     pipelineDescriptor.fragmentFunction = fragmentFunction
     pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-    pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mdlMesh.vertexDescriptor)
+    pipelineDescriptor.vertexDescriptor = .defaultLayout
+    
     do {
       Self.pipelineState =
       try Self.device.makeRenderPipelineState(

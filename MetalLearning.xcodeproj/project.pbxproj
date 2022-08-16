@@ -24,6 +24,11 @@
 		15FD5B5428A936C0001F3ADF /* Number4Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5328A936C0001F3ADF /* Number4Field.swift */; };
 		15FD5B5628A936D9001F3ADF /* Number3x3Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5528A936D9001F3ADF /* Number3x3Field.swift */; };
 		15FD5B5828A936ED001F3ADF /* Number4x4Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5728A936ED001F3ADF /* Number4x4Field.swift */; };
+		15FD5B5D28AAE519001F3ADF /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5C28AAE519001F3ADF /* MathLibrary.swift */; };
+		15FD5B5F28AAE5EE001F3ADF /* VertexDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B5E28AAE5EE001F3ADF /* VertexDescriptor.swift */; };
+		15FD5B6128AAE686001F3ADF /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6028AAE686001F3ADF /* Transform.swift */; };
+		15FD5B6328AAE75B001F3ADF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6228AAE75B001F3ADF /* Model.swift */; };
+		15FD5B6628AAE822001F3ADF /* train.usd in Resources */ = {isa = PBXBuildFile; fileRef = 15FD5B6528AAE822001F3ADF /* train.usd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +50,12 @@
 		15FD5B5328A936C0001F3ADF /* Number4Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number4Field.swift; sourceTree = "<group>"; };
 		15FD5B5528A936D9001F3ADF /* Number3x3Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number3x3Field.swift; sourceTree = "<group>"; };
 		15FD5B5728A936ED001F3ADF /* Number4x4Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number4x4Field.swift; sourceTree = "<group>"; };
+		15FD5B5928AAE07E001F3ADF /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		15FD5B5C28AAE519001F3ADF /* MathLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathLibrary.swift; sourceTree = "<group>"; };
+		15FD5B5E28AAE5EE001F3ADF /* VertexDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexDescriptor.swift; sourceTree = "<group>"; };
+		15FD5B6028AAE686001F3ADF /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		15FD5B6228AAE75B001F3ADF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		15FD5B6528AAE822001F3ADF /* train.usd */ = {isa = PBXFileReference; lastKnownFileType = file; path = train.usd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +91,14 @@
 			children = (
 				15FD5B3028A7B7B3001F3ADF /* Graphics */,
 				15FD5B1E28A7B70A001F3ADF /* MetalLearningApp.swift */,
+				15FD5B5B28AAE519001F3ADF /* Utility */,
 				15FD5B2228A7B70A001F3ADF /* Assets.xcassets */,
 				15FD5B2728A7B70A001F3ADF /* MetalLearning.entitlements */,
+				15FD5B6428AAE822001F3ADF /* Models */,
 				15FD5B2428A7B70A001F3ADF /* Preview Content */,
 				15FD5B2F28A7B76F001F3ADF /* Views */,
+				15FD5B6028AAE686001F3ADF /* Transform.swift */,
+				15FD5B6228AAE75B001F3ADF /* Model.swift */,
 			);
 			path = MetalLearning;
 			sourceTree = "<group>";
@@ -113,6 +128,7 @@
 				15FD5B3328A7B864001F3ADF /* Shaders */,
 				15FD5B3128A7B7D1001F3ADF /* ViewRenderer.swift */,
 				15FD5B3928A83235001F3ADF /* Renderer.swift */,
+				15FD5B5E28AAE5EE001F3ADF /* VertexDescriptor.swift */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -120,6 +136,7 @@
 		15FD5B3328A7B864001F3ADF /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				15FD5B5928AAE07E001F3ADF /* Common.h */,
 				15FD5B3428A7B881001F3ADF /* Default.metal */,
 			);
 			path = Shaders;
@@ -145,6 +162,22 @@
 				15FD5B4528A90C5C001F3ADF /* Demo1.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		15FD5B5B28AAE519001F3ADF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				15FD5B5C28AAE519001F3ADF /* MathLibrary.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		15FD5B6428AAE822001F3ADF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				15FD5B6528AAE822001F3ADF /* train.usd */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +246,7 @@
 			files = (
 				15FD5B2628A7B70A001F3ADF /* Preview Assets.xcassets in Resources */,
 				15FD5B2328A7B70A001F3ADF /* Assets.xcassets in Resources */,
+				15FD5B6628AAE822001F3ADF /* train.usd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,14 +263,18 @@
 				15FD5B2128A7B70A001F3ADF /* ContentView.swift in Sources */,
 				15FD5B5428A936C0001F3ADF /* Number4Field.swift in Sources */,
 				15FD5B3528A7B881001F3ADF /* Default.metal in Sources */,
+				15FD5B6128AAE686001F3ADF /* Transform.swift in Sources */,
 				15FD5B3A28A83235001F3ADF /* Renderer.swift in Sources */,
 				15FD5B4C28A92ACF001F3ADF /* NumberField.swift in Sources */,
+				15FD5B6328AAE75B001F3ADF /* Model.swift in Sources */,
 				15FD5B4628A90C5C001F3ADF /* Demo1.swift in Sources */,
 				15FD5B5628A936D9001F3ADF /* Number3x3Field.swift in Sources */,
 				15FD5B4028A8F218001F3ADF /* Formatter.swift in Sources */,
 				15FD5B5828A936ED001F3ADF /* Number4x4Field.swift in Sources */,
 				15FD5B5228A936B0001F3ADF /* Number3Field.swift in Sources */,
 				15FD5B1F28A7B70A001F3ADF /* MetalLearningApp.swift in Sources */,
+				15FD5B5F28AAE5EE001F3ADF /* VertexDescriptor.swift in Sources */,
+				15FD5B5D28AAE519001F3ADF /* MathLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +338,7 @@
 				OTHER_LDFLAGS = "";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = MetalLearning/Graphics/Shaders/Common.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -353,6 +392,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = MetalLearning/Graphics/Shaders/Common.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
@@ -386,6 +426,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = MetalLearning/Graphics/Shaders/Common.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -415,6 +456,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = MetalLearning/Graphics/Shaders/Common.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

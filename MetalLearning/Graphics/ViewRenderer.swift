@@ -17,6 +17,11 @@ class ViewRenderer: NSObject {
     
     metalView.device = Renderer.device
     metalView.delegate = self
+    
+    mtkView(
+      metalView,
+      drawableSizeWillChange: metalView.drawableSize
+    )
   }
 }
 
