@@ -28,8 +28,8 @@
 		15FD5B6128AAE686001F3ADF /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6028AAE686001F3ADF /* Transform.swift */; };
 		15FD5B6328AAE75B001F3ADF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6228AAE75B001F3ADF /* Model.swift */; };
 		15FD5B6C28ABC502001F3ADF /* Demo1ViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */; };
-		15FD5B9428ABF147001F3ADF /* Demo1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9328ABF147001F3ADF /* Demo1.swift */; };
-		15FD5B9628ABF3D3001F3ADF /* Demo1Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9528ABF3D3001F3ADF /* Demo1Data.swift */; };
+		15FD5B9428ABF147001F3ADF /* Demo1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9328ABF147001F3ADF /* Demo1View.swift */; };
+		15FD5B9628ABF3D3001F3ADF /* Demo1Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9528ABF3D3001F3ADF /* Demo1Scene.swift */; };
 		15FD5B9928AC1EB1001F3ADF /* Submesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9828AC1EB1001F3ADF /* Submesh.swift */; };
 		15FD5B9B28AC2024001F3ADF /* TextureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9A28AC2024001F3ADF /* TextureController.swift */; };
 		15FD5B9D28AC2074001F3ADF /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9C28AC2074001F3ADF /* Mesh.swift */; };
@@ -42,6 +42,9 @@
 		15FD5BB028AC2704001F3ADF /* lowpoly-house.obj in Resources */ = {isa = PBXBuildFile; fileRef = 15FD5BA828AC2704001F3ADF /* lowpoly-house.obj */; };
 		15FD5BB128AC2704001F3ADF /* lowpoly-house.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 15FD5BA928AC2704001F3ADF /* lowpoly-house.mtl */; };
 		15FD5BB328AC28A1001F3ADF /* Textures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FD5BB228AC28A1001F3ADF /* Textures.xcassets */; };
+		15FD5BB528ACF53E001F3ADF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5BB428ACF53E001F3ADF /* Camera.swift */; };
+		15FD5BB728ACFABB001F3ADF /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5BB628ACFABB001F3ADF /* InputController.swift */; };
+		15FD5BB928ACFDBA001F3ADF /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5BB828ACFDBA001F3ADF /* Movement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,8 +71,8 @@
 		15FD5B6028AAE686001F3ADF /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		15FD5B6228AAE75B001F3ADF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1ViewRenderer.swift; sourceTree = "<group>"; };
-		15FD5B9328ABF147001F3ADF /* Demo1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1.swift; sourceTree = "<group>"; };
-		15FD5B9528ABF3D3001F3ADF /* Demo1Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1Data.swift; sourceTree = "<group>"; };
+		15FD5B9328ABF147001F3ADF /* Demo1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1View.swift; sourceTree = "<group>"; };
+		15FD5B9528ABF3D3001F3ADF /* Demo1Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1Scene.swift; sourceTree = "<group>"; };
 		15FD5B9828AC1EB1001F3ADF /* Submesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submesh.swift; sourceTree = "<group>"; };
 		15FD5B9A28AC2024001F3ADF /* TextureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureController.swift; sourceTree = "<group>"; };
 		15FD5B9C28AC2074001F3ADF /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
@@ -82,6 +85,9 @@
 		15FD5BA828AC2704001F3ADF /* lowpoly-house.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lowpoly-house.obj"; sourceTree = "<group>"; };
 		15FD5BA928AC2704001F3ADF /* lowpoly-house.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "lowpoly-house.mtl"; sourceTree = "<group>"; };
 		15FD5BB228AC28A1001F3ADF /* Textures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Textures.xcassets; sourceTree = "<group>"; };
+		15FD5BB428ACF53E001F3ADF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		15FD5BB628ACFABB001F3ADF /* InputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputController.swift; sourceTree = "<group>"; };
+		15FD5BB828ACFDBA001F3ADF /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,9 @@
 				15FD5B9A28AC2024001F3ADF /* TextureController.swift */,
 				15FD5B9C28AC2074001F3ADF /* Mesh.swift */,
 				15FD5BB228AC28A1001F3ADF /* Textures.xcassets */,
+				15FD5BB428ACF53E001F3ADF /* Camera.swift */,
+				15FD5BB628ACFABB001F3ADF /* InputController.swift */,
+				15FD5BB828ACFDBA001F3ADF /* Movement.swift */,
 			);
 			path = MetalLearning;
 			sourceTree = "<group>";
@@ -206,8 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */,
-				15FD5B9328ABF147001F3ADF /* Demo1.swift */,
-				15FD5B9528ABF3D3001F3ADF /* Demo1Data.swift */,
+				15FD5B9328ABF147001F3ADF /* Demo1View.swift */,
+				15FD5B9528ABF3D3001F3ADF /* Demo1Scene.swift */,
 			);
 			path = Demo1;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 				15FD5B5428A936C0001F3ADF /* Number4Field.swift in Sources */,
 				15FD5B3528A7B881001F3ADF /* Default.metal in Sources */,
 				15FD5B6128AAE686001F3ADF /* Transform.swift in Sources */,
+				15FD5BB528ACF53E001F3ADF /* Camera.swift in Sources */,
 				15FD5B3A28A83235001F3ADF /* Renderer.swift in Sources */,
 				15FD5B4C28A92ACF001F3ADF /* NumberField.swift in Sources */,
 				15FD5B6328AAE75B001F3ADF /* Model.swift in Sources */,
@@ -351,10 +361,12 @@
 				15FD5B5628A936D9001F3ADF /* Number3x3Field.swift in Sources */,
 				15FD5B9B28AC2024001F3ADF /* TextureController.swift in Sources */,
 				15FD5B4028A8F218001F3ADF /* Formatter.swift in Sources */,
+				15FD5BB928ACFDBA001F3ADF /* Movement.swift in Sources */,
 				15FD5B5828A936ED001F3ADF /* Number4x4Field.swift in Sources */,
-				15FD5B9628ABF3D3001F3ADF /* Demo1Data.swift in Sources */,
+				15FD5B9628ABF3D3001F3ADF /* Demo1Scene.swift in Sources */,
+				15FD5BB728ACFABB001F3ADF /* InputController.swift in Sources */,
 				15FD5B5228A936B0001F3ADF /* Number3Field.swift in Sources */,
-				15FD5B9428ABF147001F3ADF /* Demo1.swift in Sources */,
+				15FD5B9428ABF147001F3ADF /* Demo1View.swift in Sources */,
 				15FD5B1F28A7B70A001F3ADF /* MetalLearningApp.swift in Sources */,
 				15FD5B9D28AC2074001F3ADF /* Mesh.swift in Sources */,
 				15FD5B5F28AAE5EE001F3ADF /* VertexDescriptor.swift in Sources */,

@@ -19,7 +19,7 @@ struct ContentView: View {
       List {
         Section("Scenes") {
           NavigationLink("Demo1", isActive: $isDemo1Active) {
-            Demo1()
+            Demo1View()
           }
         }
       }

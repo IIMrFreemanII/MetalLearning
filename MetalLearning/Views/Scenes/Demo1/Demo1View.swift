@@ -8,9 +8,9 @@
 import SwiftUI
 import Inject
 
-struct Demo1: View {
+struct Demo1View: View {
   @ObserveInjection private var inject
-  @State private var data = demo1Data
+  @State private var scene = demo1Scene
   
   var body: some View {
     NavigationView {
@@ -20,9 +20,9 @@ struct Demo1: View {
             "Clear color",
             selection:
               Binding(
-                get: { Color(red: data.clearColor.red, green: data.clearColor.green, blue: data.clearColor.blue, opacity: data.clearColor.alpha)},
+                get: { Color(red: scene.clearColor.red, green: scene.clearColor.green, blue: scene.clearColor.blue, opacity: scene.clearColor.alpha)},
                 set: {
-                  data.clearColor = MTLClearColor(
+                  scene.clearColor = MTLClearColor(
                     red: Double($0.cgColor?.components?[0] ?? 0),
                     green: Double($0.cgColor?.components?[1] ?? 0),
                     blue: Double($0.cgColor?.components?[2] ?? 0),
@@ -46,6 +46,6 @@ struct Demo1: View {
 
 struct Demo1_Previews: PreviewProvider {
   static var previews: some View {
-    Demo1()
+    Demo1View()
   }
 }

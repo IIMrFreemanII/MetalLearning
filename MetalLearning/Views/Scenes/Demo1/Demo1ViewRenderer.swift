@@ -8,7 +8,12 @@
 import MetalKit
 
 class Demo1ViewRenderer : ViewRenderer {
-  private var data = demo1Data
+  private var scene = demo1Scene
+  
+  var lastTime: Double = CFAbsoluteTimeGetCurrent()
+  
+  var uniforms = Uniforms()
+  var params = Params()
   
   required init(metalView: MTKView) {
     super.init(metalView: metalView)
@@ -17,17 +22,9 @@ class Demo1ViewRenderer : ViewRenderer {
   }
   
   override func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-    print("resize")
-    let aspect = Float(view.bounds.width) / Float(view.bounds.height)
-    data.uniforms.projectionMatrix =
-      float4x4(
-        projectionFov: Float(70).degreesToRadians,
-        near: 0.1,
-        far: 100,
-        aspect: aspect
-      )
-    data.params.width = UInt32(size.width)
-    data.params.height = UInt32(size.height)
+    scene.update(size: size)
+    params.width = UInt32(size.width)
+    params.height = UInt32(size.height)
   }
   
   override func draw(in view: MTKView) {
@@ -41,22 +38,21 @@ class Demo1ViewRenderer : ViewRenderer {
       return
     }
     
-    view.clearColor = data.clearColor
-    data.timer += 0.005
-    data.uniforms.viewMatrix = float4x4(translation: [0, 1.5, -5]).inverse
+    view.clearColor = scene.clearColor
     
     renderEncoder.setDepthStencilState(Renderer.depthStencilState)
     renderEncoder.setRenderPipelineState(Renderer.pipelineState)
     
-    data.house.rotation.y = sin(data.timer)
-    data.house.render(encoder: renderEncoder, uniforms: data.uniforms, params: data.params)
-
-    data.ground.scale = 40
-    data.ground.rotation.y = sin(data.timer)
-    data.ground.render(
-      encoder: renderEncoder,
-      uniforms: data.uniforms,
-      params: data.params)
+    let currentTime = CFAbsoluteTimeGetCurrent()
+    let deltaTime = Float(currentTime - lastTime)
+    lastTime = currentTime
+    
+    scene.update(deltaTime: deltaTime)
+    uniforms.viewMatrix = scene.camera.viewMatrix
+    uniforms.projectionMatrix = scene.camera.projectionMatrix
+    for model in scene.models {
+      model.render(encoder: renderEncoder, uniforms: uniforms, params: params)
+    }
     
     renderEncoder.endEncoding()
     guard let drawable = view.currentDrawable else {

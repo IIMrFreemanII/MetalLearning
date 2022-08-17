@@ -175,8 +175,19 @@ extension float3x3 {
   }
 }
 
+// MARK: - float3
+extension float3 {
+  static let up: float3 = float3(0, 1, 0)
+  static let forward: float3 = float3(0, 0, 1)
+  static let right: float3 = float3(1, 0, 0)
+}
+
 // MARK: - float4
 extension float4 {
+  static let up: float4 = float4(0, 1, 0, 0)
+  static let forward: float4 = float4(0, 0, 1, 0)
+  static let right: float4 = float4(1, 0, 0, 0)
+  
   var xyz: float3 {
     get {
       float3(x, y, z)
