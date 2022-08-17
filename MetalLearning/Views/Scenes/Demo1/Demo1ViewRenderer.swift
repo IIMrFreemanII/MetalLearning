@@ -43,27 +43,20 @@ class Demo1ViewRenderer : ViewRenderer {
     
     view.clearColor = data.clearColor
     data.timer += 0.005
-    data.uniforms.viewMatrix = float4x4(translation: [0, 0, -3]).inverse
+    data.uniforms.viewMatrix = float4x4(translation: [0, 1.5, -5]).inverse
     
-    data.model.position.y = -0.6
-    data.model.rotation.y = sin(data.timer)
-    data.uniforms.modelMatrix = data.model.transform.modelMatrix
-    
-    //      print("draw")
     renderEncoder.setDepthStencilState(Renderer.depthStencilState)
     renderEncoder.setRenderPipelineState(Renderer.pipelineState)
-    renderEncoder.setVertexBytes(
-      &data.uniforms,
-      length: MemoryLayout<Uniforms>.stride,
-      index: UniformsBuffer.index
-    )
-    renderEncoder.setFragmentBytes(
-      &data.params,
-      length: MemoryLayout<Params>.stride,
-      index: ParamsBuffer.index
-    )
-//    renderEncoder.setTriangleFillMode(.lines)
-    data.model.render(encoder: renderEncoder)
+    
+    data.house.rotation.y = sin(data.timer)
+    data.house.render(encoder: renderEncoder, uniforms: data.uniforms, params: data.params)
+
+    data.ground.scale = 40
+    data.ground.rotation.y = sin(data.timer)
+    data.ground.render(
+      encoder: renderEncoder,
+      uniforms: data.uniforms,
+      params: data.params)
     
     renderEncoder.endEncoding()
     guard let drawable = view.currentDrawable else {

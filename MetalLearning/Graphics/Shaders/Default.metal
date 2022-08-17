@@ -1,11 +1,17 @@
 #include <metal_stdlib>
 using namespace metal;
 #import "Common.h"
-#import "ShaderDefs.h"
 
 struct VertexIn {
   float4 position [[attribute(0)]];
   float3 normal [[attribute(1)]];
+  float2 uv [[attribute(UV)]];
+};
+
+struct VertexOut {
+  float4 position [[position]];
+  float3 normal;
+  float2 uv;
 };
 
 vertex VertexOut vertex_main(
@@ -19,15 +25,25 @@ vertex VertexOut vertex_main(
   
   VertexOut out {
     .position = position,
-    .normal = normal
+    .normal = normal,
+    .uv = in.uv
   };
   return out;
 }
 
 fragment float4 fragment_main(
                               constant Params &params [[buffer(ParamsBuffer)]],
-                              VertexOut in [[stage_in]]
+                              VertexOut in [[stage_in]],
+                              texture2d<float> baseColorTexture [[texture(BaseColor)]]
                               )
 {
-  return float4(in.normal, 1);
+  constexpr sampler textureSampler(
+    filter::linear,
+    mip_filter::linear,
+    max_anisotropy(8),
+    address::repeat);
+  float3 baseColor = baseColorTexture.sample(
+    textureSampler,
+    in.uv * params.tiling).rgb;
+  return float4(baseColor, 1);
 }

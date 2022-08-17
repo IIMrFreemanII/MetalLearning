@@ -40,6 +40,7 @@ struct Demo1: View {
         .ignoresSafeArea()
     }
     .enableInjection()
+//    .keyboardShortcut()
   }
 }
 
