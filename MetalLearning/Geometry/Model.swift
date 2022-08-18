@@ -36,10 +36,11 @@ extension Model {
     params fragment: Params
   ) {
     var uniforms = vertex
+    uniforms.modelMatrix = transform.modelMatrix
+    uniforms.normalMatrix = uniforms.modelMatrix.upperLeft
+    
     var params = fragment
     params.tiling = tiling
-
-    uniforms.modelMatrix = transform.modelMatrix
 
     encoder.setVertexBytes(
       &uniforms,

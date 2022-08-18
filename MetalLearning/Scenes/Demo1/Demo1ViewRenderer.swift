@@ -38,20 +38,33 @@ class Demo1ViewRenderer : ViewRenderer {
       return
     }
     
+    let currentTime = CFAbsoluteTimeGetCurrent()
+    let deltaTime = Float(currentTime - lastTime)
+    lastTime = currentTime
+    
     view.clearColor = scene.clearColor
     
     renderEncoder.setDepthStencilState(Renderer.depthStencilState)
     renderEncoder.setRenderPipelineState(Renderer.pipelineState)
     
-    let currentTime = CFAbsoluteTimeGetCurrent()
-    let deltaTime = Float(currentTime - lastTime)
-    lastTime = currentTime
+    var lights = scene.lighting.lights
+    renderEncoder.setFragmentBytes(
+      &lights,
+      length: MemoryLayout<Light>.stride * lights.count,
+      index: LightBuffer.index)
     
     scene.update(deltaTime: deltaTime)
     uniforms.viewMatrix = scene.camera.viewMatrix
     uniforms.projectionMatrix = scene.camera.projectionMatrix
+    params.lightCount = UInt32(scene.lighting.lights.count)
+    params.cameraPosition = scene.camera.position
+    
     for model in scene.models {
       model.render(encoder: renderEncoder, uniforms: uniforms, params: params)
+    }
+    
+    for light in lights {
+      Renderer.drawPoint(encoder: renderEncoder, uniforms: uniforms, position: light.position, color: light.color)
     }
     
     renderEncoder.endEncoding()

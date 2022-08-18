@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		157DD15C28AE521E00E80721 /* Debug.metal in Sources */ = {isa = PBXBuildFile; fileRef = 157DD15B28AE521E00E80721 /* Debug.metal */; };
+		157DD16228AE61E000E80721 /* Lighting.metal in Sources */ = {isa = PBXBuildFile; fileRef = 157DD16128AE61E000E80721 /* Lighting.metal */; };
+		157DD16428AE64E500E80721 /* SceneLighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157DD16328AE64E500E80721 /* SceneLighting.swift */; };
+		157DD16828AE6D5700E80721 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 157DD16628AE6D5700E80721 /* sphere.obj */; };
+		157DD16928AE6D5700E80721 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 157DD16728AE6D5700E80721 /* sphere.mtl */; };
 		15FD5B1F28A7B70A001F3ADF /* MetalLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B1E28A7B70A001F3ADF /* MetalLearningApp.swift */; };
 		15FD5B2128A7B70A001F3ADF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B2028A7B70A001F3ADF /* ContentView.swift */; };
 		15FD5B2328A7B70A001F3ADF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FD5B2228A7B70A001F3ADF /* Assets.xcassets */; };
 		15FD5B2628A7B70A001F3ADF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FD5B2528A7B70A001F3ADF /* Preview Assets.xcassets */; };
 		15FD5B2E28A7B767001F3ADF /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B2D28A7B767001F3ADF /* MetalView.swift */; };
 		15FD5B3228A7B7D1001F3ADF /* ViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3128A7B7D1001F3ADF /* ViewRenderer.swift */; };
-		15FD5B3528A7B881001F3ADF /* Default.metal in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3428A7B881001F3ADF /* Default.metal */; };
+		15FD5B3528A7B881001F3ADF /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3428A7B881001F3ADF /* Shaders.metal */; };
 		15FD5B3828A7B9D7001F3ADF /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 15FD5B3728A7B9D7001F3ADF /* Inject */; };
 		15FD5B3A28A83235001F3ADF /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3928A83235001F3ADF /* Renderer.swift */; };
 		15FD5B4028A8F218001F3ADF /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B3D28A8F218001F3ADF /* Formatter.swift */; };
@@ -48,6 +53,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		157DD15B28AE521E00E80721 /* Debug.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Debug.metal; sourceTree = "<group>"; };
+		157DD16028AE61CB00E80721 /* Lighting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lighting.h; sourceTree = "<group>"; };
+		157DD16128AE61E000E80721 /* Lighting.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Lighting.metal; sourceTree = "<group>"; };
+		157DD16328AE64E500E80721 /* SceneLighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneLighting.swift; sourceTree = "<group>"; };
+		157DD16628AE6D5700E80721 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		157DD16728AE6D5700E80721 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
 		15FD5B1B28A7B70A001F3ADF /* MetalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FD5B1E28A7B70A001F3ADF /* MetalLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalLearningApp.swift; sourceTree = "<group>"; };
 		15FD5B2028A7B70A001F3ADF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,7 +67,7 @@
 		15FD5B2728A7B70A001F3ADF /* MetalLearning.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetalLearning.entitlements; sourceTree = "<group>"; };
 		15FD5B2D28A7B767001F3ADF /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		15FD5B3128A7B7D1001F3ADF /* ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRenderer.swift; sourceTree = "<group>"; };
-		15FD5B3428A7B881001F3ADF /* Default.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Default.metal; sourceTree = "<group>"; };
+		15FD5B3428A7B881001F3ADF /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		15FD5B3928A83235001F3ADF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		15FD5B3D28A8F218001F3ADF /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		15FD5B4B28A92ACF001F3ADF /* NumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberField.swift; sourceTree = "<group>"; };
@@ -102,6 +113,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		157DD15D28AE544500E80721 /* Geometry */ = {
+			isa = PBXGroup;
+			children = (
+				15FD5B5E28AAE5EE001F3ADF /* VertexDescriptor.swift */,
+				15FD5B6028AAE686001F3ADF /* Transform.swift */,
+				15FD5B6228AAE75B001F3ADF /* Model.swift */,
+				15FD5B9828AC1EB1001F3ADF /* Submesh.swift */,
+				15FD5B9C28AC2074001F3ADF /* Mesh.swift */,
+			);
+			path = Geometry;
+			sourceTree = "<group>";
+		};
+		157DD15E28AE548800E80721 /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				15FD5B9A28AC2024001F3ADF /* TextureController.swift */,
+				15FD5BB228AC28A1001F3ADF /* Textures.xcassets */,
+			);
+			path = Textures;
+			sourceTree = "<group>";
+		};
+		157DD15F28AE54B800E80721 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				15FD5BB628ACFABB001F3ADF /* InputController.swift */,
+				15FD5BB828ACFDBA001F3ADF /* Movement.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		157DD16528AE6D5700E80721 /* Sphere */ = {
+			isa = PBXGroup;
+			children = (
+				157DD16628AE6D5700E80721 /* sphere.obj */,
+				157DD16728AE6D5700E80721 /* sphere.mtl */,
+			);
+			path = Sphere;
+			sourceTree = "<group>";
+		};
 		15FD5B1228A7B70A001F3ADF = {
 			isa = PBXGroup;
 			children = (
@@ -121,25 +171,19 @@
 		15FD5B1D28A7B70A001F3ADF /* MetalLearning */ = {
 			isa = PBXGroup;
 			children = (
+				157DD15D28AE544500E80721 /* Geometry */,
 				15FD5B3028A7B7B3001F3ADF /* Graphics */,
 				15FD5B1E28A7B70A001F3ADF /* MetalLearningApp.swift */,
-				15FD5B3928A83235001F3ADF /* Renderer.swift */,
-				15FD5B5E28AAE5EE001F3ADF /* VertexDescriptor.swift */,
 				15FD5B5B28AAE519001F3ADF /* Utility */,
 				15FD5B2228A7B70A001F3ADF /* Assets.xcassets */,
 				15FD5B2728A7B70A001F3ADF /* MetalLearning.entitlements */,
+				15FD5B9228ABF135001F3ADF /* Scenes */,
 				15FD5B2428A7B70A001F3ADF /* Preview Content */,
-				15FD5B2F28A7B76F001F3ADF /* Views */,
-				15FD5B6028AAE686001F3ADF /* Transform.swift */,
+				15FD5B2F28A7B76F001F3ADF /* SwiftUIViews */,
 				15FD5B9E28AC2704001F3ADF /* Models */,
-				15FD5B6228AAE75B001F3ADF /* Model.swift */,
-				15FD5B9828AC1EB1001F3ADF /* Submesh.swift */,
-				15FD5B9A28AC2024001F3ADF /* TextureController.swift */,
-				15FD5B9C28AC2074001F3ADF /* Mesh.swift */,
-				15FD5BB228AC28A1001F3ADF /* Textures.xcassets */,
+				157DD15E28AE548800E80721 /* Textures */,
 				15FD5BB428ACF53E001F3ADF /* Camera.swift */,
-				15FD5BB628ACFABB001F3ADF /* InputController.swift */,
-				15FD5BB828ACFDBA001F3ADF /* Movement.swift */,
+				157DD15F28AE54B800E80721 /* Input */,
 			);
 			path = MetalLearning;
 			sourceTree = "<group>";
@@ -152,21 +196,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		15FD5B2F28A7B76F001F3ADF /* Views */ = {
+		15FD5B2F28A7B76F001F3ADF /* SwiftUIViews */ = {
 			isa = PBXGroup;
 			children = (
-				15FD5B9228ABF135001F3ADF /* Scenes */,
 				15FD5B3B28A8F218001F3ADF /* Fields */,
 				15FD5B2028A7B70A001F3ADF /* ContentView.swift */,
 				15FD5B2D28A7B767001F3ADF /* MetalView.swift */,
 			);
-			path = Views;
+			path = SwiftUIViews;
 			sourceTree = "<group>";
 		};
 		15FD5B3028A7B7B3001F3ADF /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
 				15FD5B3328A7B864001F3ADF /* Shaders */,
+				15FD5B3928A83235001F3ADF /* Renderer.swift */,
 				15FD5B3128A7B7D1001F3ADF /* ViewRenderer.swift */,
 			);
 			path = Graphics;
@@ -175,8 +219,11 @@
 		15FD5B3328A7B864001F3ADF /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				157DD16028AE61CB00E80721 /* Lighting.h */,
 				15FD5B5928AAE07E001F3ADF /* Common.h */,
-				15FD5B3428A7B881001F3ADF /* Default.metal */,
+				157DD16128AE61E000E80721 /* Lighting.metal */,
+				157DD15B28AE521E00E80721 /* Debug.metal */,
+				15FD5B3428A7B881001F3ADF /* Shaders.metal */,
 			);
 			path = Shaders;
 			sourceTree = "<group>";
@@ -216,6 +263,7 @@
 			children = (
 				15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */,
 				15FD5B9328ABF147001F3ADF /* Demo1View.swift */,
+				157DD16328AE64E500E80721 /* SceneLighting.swift */,
 				15FD5B9528ABF3D3001F3ADF /* Demo1Scene.swift */,
 			);
 			path = Demo1;
@@ -224,6 +272,7 @@
 		15FD5B9E28AC2704001F3ADF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				157DD16528AE6D5700E80721 /* Sphere */,
 				15FD5B9F28AC2704001F3ADF /* Textures */,
 				15FD5BA228AC2704001F3ADF /* Ground */,
 				15FD5BA628AC2704001F3ADF /* LowPolyHouse */,
@@ -326,6 +375,7 @@
 			files = (
 				15FD5B2628A7B70A001F3ADF /* Preview Assets.xcassets in Resources */,
 				15FD5BB028AC2704001F3ADF /* lowpoly-house.obj in Resources */,
+				157DD16928AE6D5700E80721 /* sphere.mtl in Resources */,
 				15FD5BAA28AC2704001F3ADF /* barn-ground.png in Resources */,
 				15FD5BAE28AC2704001F3ADF /* ground.png in Resources */,
 				15FD5BAD28AC2704001F3ADF /* plane.mtl in Resources */,
@@ -334,6 +384,7 @@
 				15FD5BB128AC2704001F3ADF /* lowpoly-house.mtl in Resources */,
 				15FD5B2328A7B70A001F3ADF /* Assets.xcassets in Resources */,
 				15FD5BB328AC28A1001F3ADF /* Textures.xcassets in Resources */,
+				157DD16828AE6D5700E80721 /* sphere.obj in Resources */,
 				15FD5BAB28AC2704001F3ADF /* lowpoly-barn-color.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,13 +402,16 @@
 				15FD5B2128A7B70A001F3ADF /* ContentView.swift in Sources */,
 				15FD5B9928AC1EB1001F3ADF /* Submesh.swift in Sources */,
 				15FD5B5428A936C0001F3ADF /* Number4Field.swift in Sources */,
-				15FD5B3528A7B881001F3ADF /* Default.metal in Sources */,
+				157DD16428AE64E500E80721 /* SceneLighting.swift in Sources */,
+				15FD5B3528A7B881001F3ADF /* Shaders.metal in Sources */,
 				15FD5B6128AAE686001F3ADF /* Transform.swift in Sources */,
 				15FD5BB528ACF53E001F3ADF /* Camera.swift in Sources */,
+				157DD16228AE61E000E80721 /* Lighting.metal in Sources */,
 				15FD5B3A28A83235001F3ADF /* Renderer.swift in Sources */,
 				15FD5B4C28A92ACF001F3ADF /* NumberField.swift in Sources */,
 				15FD5B6328AAE75B001F3ADF /* Model.swift in Sources */,
 				15FD5B6C28ABC502001F3ADF /* Demo1ViewRenderer.swift in Sources */,
+				157DD15C28AE521E00E80721 /* Debug.metal in Sources */,
 				15FD5B5628A936D9001F3ADF /* Number3x3Field.swift in Sources */,
 				15FD5B9B28AC2024001F3ADF /* TextureController.swift in Sources */,
 				15FD5B4028A8F218001F3ADF /* Formatter.swift in Sources */,

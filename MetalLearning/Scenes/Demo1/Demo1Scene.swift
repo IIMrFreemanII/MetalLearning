@@ -10,21 +10,16 @@ import MetalKit
 
 class Demo1Scene: ObservableObject {
   var camera = FPCamera()
+  let lighting = SceneLighting()
   
   init() {
     camera.position = [0, 1.5, -5]
   }
   
-  lazy var house: Model = {
-    Model(name: "lowpoly-house.obj")
+  lazy var sphere: Model = {
+    Model(name: "sphere.obj")
   }()
-  lazy var ground: Model = {
-    var ground = Model(name: "plane.obj")
-    ground.scale = 40
-    ground.tiling = 16
-    return ground
-  }()
-  lazy var models: [Model] = [ground, house]
+  lazy var models: [Model] = [sphere]
   
   var clearColor = MTLClearColor(
     red: 0.93,
@@ -39,6 +34,10 @@ class Demo1Scene: ObservableObject {
   
   func update(deltaTime: Float) {
     camera.update(deltaTime: deltaTime)
+    
+    for model in models {
+      model.transform.rotation.y += 1 * deltaTime
+    }
   }
 }
 

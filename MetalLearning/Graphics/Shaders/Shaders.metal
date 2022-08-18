@@ -1,17 +1,21 @@
 #include <metal_stdlib>
 using namespace metal;
 #import "Common.h"
+#import "Lighting.h"
 
 struct VertexIn {
-  float4 position [[attribute(0)]];
-  float3 normal [[attribute(1)]];
+  float4 position [[attribute(Position)]];
+  float3 normal [[attribute(Normal)]];
   float2 uv [[attribute(UV)]];
+  float3 color [[attribute(Color)]];
 };
 
 struct VertexOut {
   float4 position [[position]];
-  float3 normal;
   float2 uv;
+  float3 color;
+  float3 worldPosition;
+  float3 worldNormal;
 };
 
 vertex VertexOut vertex_main(
@@ -21,19 +25,21 @@ vertex VertexOut vertex_main(
 {
   float4 position =
   uniforms.projectionMatrix * uniforms.viewMatrix * uniforms.modelMatrix * in.position;
-  float3 normal = in.normal;
   
   VertexOut out {
     .position = position,
-    .normal = normal,
-    .uv = in.uv
+    .uv = in.uv,
+    .color = in.color,
+    .worldPosition = (uniforms.modelMatrix * in.position).xyz,
+    .worldNormal = uniforms.normalMatrix * in.normal
   };
   return out;
 }
 
 fragment float4 fragment_main(
-                              constant Params &params [[buffer(ParamsBuffer)]],
                               VertexOut in [[stage_in]],
+                              constant Params &params [[buffer(ParamsBuffer)]],
+                              constant Light *lights [[buffer(LightBuffer)]],
                               texture2d<float> baseColorTexture [[texture(BaseColor)]]
                               )
 {
@@ -42,8 +48,22 @@ fragment float4 fragment_main(
     mip_filter::linear,
     max_anisotropy(8),
     address::repeat);
-  float3 baseColor = baseColorTexture.sample(
+  
+  float3 baseColor;
+  if (is_null_texture(baseColorTexture)) {
+    baseColor = in.color;
+  } else {
+    baseColor = baseColorTexture.sample(
     textureSampler,
     in.uv * params.tiling).rgb;
-  return float4(baseColor, 1);
+  }
+  float3 normalDirection = normalize(in.worldNormal);
+  float3 color = phongLighting(
+    normalDirection,
+    in.worldPosition,
+    params,
+    lights,
+    baseColor
+  );
+  return float4(color, 1);
 }
