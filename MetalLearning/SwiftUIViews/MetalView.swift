@@ -6,20 +6,15 @@ struct MetalView: View {
   @ObserveInjection private var inject
   
   @State private var metalView = MTKView()
-  @State private var viewRenderer: ViewRenderer?
-  var viewRendererType: ViewRenderer.Type
+  let viewRenderer: ViewRenderer
   
   var body: some View {
     MetalViewRepresentable(metalView: $metalView)
       .onAppear {
-        viewRenderer = viewRendererType.init(
-          metalView: metalView
-        )
+        viewRenderer.initialize(metalView: metalView)
       }
       .onReceive(inject.observer.objectWillChange) {
-        viewRenderer = viewRendererType.init(
-          metalView: metalView
-        )
+        viewRenderer.initialize(metalView: metalView)
       }
       .enableInjection()
   }

@@ -10,7 +10,7 @@ import Inject
 
 struct Demo1View: View {
   @ObserveInjection private var inject
-  @State private var scene = demo1Scene
+  @State private var scene = Demo1ViewRenderer()
   
   var body: some View {
     NavigationView {
@@ -36,7 +36,7 @@ struct Demo1View: View {
       .listStyle(.sidebar)
       .ignoresSafeArea()
       Text("Empty")
-      MetalView(viewRendererType: Demo1ViewRenderer.self)
+      MetalView(viewRenderer: scene)
         .ignoresSafeArea()
     }
     .enableInjection()

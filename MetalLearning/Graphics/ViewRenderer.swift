@@ -1,9 +1,7 @@
 import MetalKit
 
-class ViewRenderer: NSObject {
-  required init(metalView: MTKView) {
-    super.init()
-    
+class ViewRenderer: NSObject, ObservableObject {
+  func initialize(metalView: MTKView) {
     metalView.device = Renderer.device
     metalView.delegate = self
     
@@ -12,6 +10,8 @@ class ViewRenderer: NSObject {
       drawableSizeWillChange: metalView.drawableSize
     )
   }
+  
+  func update(deltaTime: Float) {}
 }
 
 extension ViewRenderer: MTKViewDelegate {

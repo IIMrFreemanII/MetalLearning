@@ -8,23 +8,45 @@
 import MetalKit
 
 class Demo1ViewRenderer : ViewRenderer {
-  private var scene = demo1Scene
+  var camera = FPCamera()
+  let lighting = SceneLighting()
+  
+  lazy var sphere: Model = {
+    Model(name: "sphere.obj")
+  }()
+  lazy var models: [Model] = [sphere]
+  var clearColor = MTLClearColor(
+    red: 0.93,
+    green: 0.97,
+    blue: 1.0,
+    alpha: 1.0
+  )
   
   var lastTime: Double = CFAbsoluteTimeGetCurrent()
   
   var uniforms = Uniforms()
   var params = Params()
   
-  required init(metalView: MTKView) {
-    super.init(metalView: metalView)
+  override func initialize(metalView: MTKView) {
+    super.initialize(metalView: metalView)
+    
+    camera.position = [0, 1.5, -5]
     
     metalView.depthStencilPixelFormat = .depth32Float
   }
   
   override func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-    scene.update(size: size)
+    camera.update(size: size)
     params.width = UInt32(size.width)
     params.height = UInt32(size.height)
+  }
+  
+  override func update(deltaTime: Float) {
+    camera.update(deltaTime: deltaTime)
+    
+    for model in models {
+      model.transform.rotation.y += 1 * deltaTime
+    }
   }
   
   override func draw(in view: MTKView) {
@@ -42,24 +64,25 @@ class Demo1ViewRenderer : ViewRenderer {
     let deltaTime = Float(currentTime - lastTime)
     lastTime = currentTime
     
-    view.clearColor = scene.clearColor
+    update(deltaTime: deltaTime)
+    
+    view.clearColor = clearColor
     
     renderEncoder.setDepthStencilState(Renderer.depthStencilState)
     renderEncoder.setRenderPipelineState(Renderer.pipelineState)
     
-    var lights = scene.lighting.lights
+    var lights = lighting.lights
     renderEncoder.setFragmentBytes(
       &lights,
       length: MemoryLayout<Light>.stride * lights.count,
       index: LightBuffer.index)
     
-    scene.update(deltaTime: deltaTime)
-    uniforms.viewMatrix = scene.camera.viewMatrix
-    uniforms.projectionMatrix = scene.camera.projectionMatrix
-    params.lightCount = UInt32(scene.lighting.lights.count)
-    params.cameraPosition = scene.camera.position
+    uniforms.viewMatrix = camera.viewMatrix
+    uniforms.projectionMatrix = camera.projectionMatrix
+    params.lightCount = UInt32(lighting.lights.count)
+    params.cameraPosition = camera.position
     
-    for model in scene.models {
+    for model in models {
       model.render(encoder: renderEncoder, uniforms: uniforms, params: params)
     }
     

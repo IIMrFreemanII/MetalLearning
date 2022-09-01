@@ -34,7 +34,6 @@
 		15FD5B6328AAE75B001F3ADF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6228AAE75B001F3ADF /* Model.swift */; };
 		15FD5B6C28ABC502001F3ADF /* Demo1ViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */; };
 		15FD5B9428ABF147001F3ADF /* Demo1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9328ABF147001F3ADF /* Demo1View.swift */; };
-		15FD5B9628ABF3D3001F3ADF /* Demo1Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9528ABF3D3001F3ADF /* Demo1Scene.swift */; };
 		15FD5B9928AC1EB1001F3ADF /* Submesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9828AC1EB1001F3ADF /* Submesh.swift */; };
 		15FD5B9B28AC2024001F3ADF /* TextureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9A28AC2024001F3ADF /* TextureController.swift */; };
 		15FD5B9D28AC2074001F3ADF /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B9C28AC2074001F3ADF /* Mesh.swift */; };
@@ -83,7 +82,6 @@
 		15FD5B6228AAE75B001F3ADF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1ViewRenderer.swift; sourceTree = "<group>"; };
 		15FD5B9328ABF147001F3ADF /* Demo1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1View.swift; sourceTree = "<group>"; };
-		15FD5B9528ABF3D3001F3ADF /* Demo1Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo1Scene.swift; sourceTree = "<group>"; };
 		15FD5B9828AC1EB1001F3ADF /* Submesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submesh.swift; sourceTree = "<group>"; };
 		15FD5B9A28AC2024001F3ADF /* TextureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureController.swift; sourceTree = "<group>"; };
 		15FD5B9C28AC2074001F3ADF /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
@@ -264,7 +262,6 @@
 				15FD5B6B28ABC502001F3ADF /* Demo1ViewRenderer.swift */,
 				15FD5B9328ABF147001F3ADF /* Demo1View.swift */,
 				157DD16328AE64E500E80721 /* SceneLighting.swift */,
-				15FD5B9528ABF3D3001F3ADF /* Demo1Scene.swift */,
 			);
 			path = Demo1;
 			sourceTree = "<group>";
@@ -417,7 +414,6 @@
 				15FD5B4028A8F218001F3ADF /* Formatter.swift in Sources */,
 				15FD5BB928ACFDBA001F3ADF /* Movement.swift in Sources */,
 				15FD5B5828A936ED001F3ADF /* Number4x4Field.swift in Sources */,
-				15FD5B9628ABF3D3001F3ADF /* Demo1Scene.swift in Sources */,
 				15FD5BB728ACFABB001F3ADF /* InputController.swift in Sources */,
 				15FD5B5228A936B0001F3ADF /* Number3Field.swift in Sources */,
 				15FD5B9428ABF147001F3ADF /* Demo1View.swift in Sources */,
