@@ -10,7 +10,7 @@ import Inject
 
 struct Demo1View: View {
   @ObserveInjection private var inject
-  @State private var scene = Demo1ViewRenderer()
+  @ObservedObject private var scene = Demo1ViewRenderer()
   
   var body: some View {
     NavigationView {
@@ -31,6 +31,13 @@ struct Demo1View: View {
                 }
               )
           )
+          Number4x4Field(
+            label: "Projection",
+            c0: $scene.uniforms.projectionMatrix.columns.0,
+            c1: $scene.uniforms.projectionMatrix.columns.1,
+            c2: $scene.uniforms.projectionMatrix.columns.2,
+            c3: $scene.uniforms.projectionMatrix.columns.3
+          )
         }
       }
       .listStyle(.sidebar)
@@ -40,7 +47,6 @@ struct Demo1View: View {
         .ignoresSafeArea()
     }
     .enableInjection()
-//    .keyboardShortcut()
   }
 }
 
