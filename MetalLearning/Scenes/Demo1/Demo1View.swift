@@ -13,7 +13,8 @@ struct Demo1View: View {
   @ObservedObject private var scene = Demo1ViewRenderer()
   
   var body: some View {
-    NavigationView {
+    print("update")
+    return NavigationView {
       List {
         Section("Data") {
           ColorPicker(
@@ -32,11 +33,11 @@ struct Demo1View: View {
               )
           )
           Number4x4Field(
-            label: "Projection",
-            c0: $scene.uniforms.projectionMatrix.columns.0,
-            c1: $scene.uniforms.projectionMatrix.columns.1,
-            c2: $scene.uniforms.projectionMatrix.columns.2,
-            c3: $scene.uniforms.projectionMatrix.columns.3
+            label: "View",
+            c0: $scene.uniforms.modelMatrix.columns.0,
+            c1: $scene.uniforms.modelMatrix.columns.1,
+            c2: $scene.uniforms.modelMatrix.columns.2,
+            c3: $scene.uniforms.modelMatrix.columns.3
           )
         }
       }

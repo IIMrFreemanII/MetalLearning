@@ -83,6 +83,7 @@ class Demo1ViewRenderer : ViewRenderer {
     params.cameraPosition = camera.position
     
     for model in models {
+      uniforms.modelMatrix = model.transform.modelMatrix
       model.render(encoder: renderEncoder, uniforms: uniforms, params: params)
     }
     

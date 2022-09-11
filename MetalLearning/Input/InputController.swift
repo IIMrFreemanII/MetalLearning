@@ -38,9 +38,12 @@ class InputController {
         }
       }
     }
+    
 #if os(macOS)
     NSEvent.addLocalMonitorForEvents(
-      matching: [.keyUp, .keyDown]) { _ in nil }
+      matching: [.keyDown]) { event in
+        return NSApp.keyWindow?.firstResponder is NSTextView ? event : nil
+      }
 #endif
     
     center.addObserver(

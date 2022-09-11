@@ -15,6 +15,7 @@ class ViewRenderer: NSObject, ObservableObject {
       keyboard?.keyboardInput?.keyChangedHandler = { _, _, keyCode, pressed in
         if keyCode == .keyR && pressed {
           self.objectWillChange.send()
+          print("reload")
         }
       }
     }
