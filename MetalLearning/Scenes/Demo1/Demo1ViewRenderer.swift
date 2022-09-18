@@ -44,9 +44,9 @@ class Demo1ViewRenderer : ViewRenderer {
   override func update(deltaTime: Float) {
     camera.update(deltaTime: deltaTime)
     
-    for model in models {
-      model.transform.rotation.y += 1 * deltaTime
-    }
+//    for model in models {
+//      model.transform.rotation.y += 1 * deltaTime
+//    }
   }
   
   override func draw(in view: MTKView) {

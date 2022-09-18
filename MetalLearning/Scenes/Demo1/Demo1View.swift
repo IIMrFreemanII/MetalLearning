@@ -32,13 +32,13 @@ struct Demo1View: View {
                 }
               )
           )
-          Number4x4Field(
-            label: "View",
-            c0: $scene.uniforms.modelMatrix.columns.0,
-            c1: $scene.uniforms.modelMatrix.columns.1,
-            c2: $scene.uniforms.modelMatrix.columns.2,
-            c3: $scene.uniforms.modelMatrix.columns.3
-          )
+//          Number4x4Field(
+//            label: "Model matrix",
+//            matrix: $scene.uniforms.modelMatrix
+//          )
+//          Number3Field(label: "Position", value: $scene.sphere.position)
+//          Number3Field(label: "Rotation", value: $scene.sphere.rotation)
+//          Number1Field(label: "Scale", value: $scene.sphere.scale)
         }
       }
       .listStyle(.sidebar)

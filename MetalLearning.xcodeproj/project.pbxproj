@@ -12,6 +12,7 @@
 		157DD16428AE64E500E80721 /* SceneLighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157DD16328AE64E500E80721 /* SceneLighting.swift */; };
 		157DD16828AE6D5700E80721 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 157DD16628AE6D5700E80721 /* sphere.obj */; };
 		157DD16928AE6D5700E80721 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 157DD16728AE6D5700E80721 /* sphere.mtl */; };
+		15D3E75E28D6F96B006EC224 /* Number1Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3E75D28D6F96B006EC224 /* Number1Field.swift */; };
 		15FD5B1F28A7B70A001F3ADF /* MetalLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B1E28A7B70A001F3ADF /* MetalLearningApp.swift */; };
 		15FD5B2128A7B70A001F3ADF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B2028A7B70A001F3ADF /* ContentView.swift */; };
 		15FD5B2328A7B70A001F3ADF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FD5B2228A7B70A001F3ADF /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		157DD16328AE64E500E80721 /* SceneLighting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneLighting.swift; sourceTree = "<group>"; };
 		157DD16628AE6D5700E80721 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		157DD16728AE6D5700E80721 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
+		15D3E75D28D6F96B006EC224 /* Number1Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number1Field.swift; sourceTree = "<group>"; };
 		15FD5B1B28A7B70A001F3ADF /* MetalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FD5B1E28A7B70A001F3ADF /* MetalLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalLearningApp.swift; sourceTree = "<group>"; };
 		15FD5B2028A7B70A001F3ADF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				15FD5B3D28A8F218001F3ADF /* Formatter.swift */,
 				15FD5B4B28A92ACF001F3ADF /* NumberField.swift */,
+				15D3E75D28D6F96B006EC224 /* Number1Field.swift */,
 				15FD5B4F28A93698001F3ADF /* Number2Field.swift */,
 				15FD5B5128A936B0001F3ADF /* Number3Field.swift */,
 				15FD5B5328A936C0001F3ADF /* Number4Field.swift */,
@@ -400,6 +403,7 @@
 				15FD5B9928AC1EB1001F3ADF /* Submesh.swift in Sources */,
 				15FD5B5428A936C0001F3ADF /* Number4Field.swift in Sources */,
 				157DD16428AE64E500E80721 /* SceneLighting.swift in Sources */,
+				15D3E75E28D6F96B006EC224 /* Number1Field.swift in Sources */,
 				15FD5B3528A7B881001F3ADF /* Shaders.metal in Sources */,
 				15FD5B6128AAE686001F3ADF /* Transform.swift in Sources */,
 				15FD5BB528ACF53E001F3ADF /* Camera.swift in Sources */,

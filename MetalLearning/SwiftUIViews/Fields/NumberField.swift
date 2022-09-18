@@ -8,7 +8,6 @@
 import SwiftUI
 import Inject
 
-
 struct NumberField<T: SIMDScalar>: View {
   @ObserveInjection private var inject
   
@@ -29,7 +28,7 @@ struct NumberField<T: SIMDScalar>: View {
   
   var body: some View {
     TextField("", value: $value, formatter: getFormatter())
-    .textFieldStyle(.roundedBorder)
+      .textFieldStyle(.roundedBorder)
     .enableInjection()
   }
 }

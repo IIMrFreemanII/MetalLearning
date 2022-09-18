@@ -8,43 +8,40 @@
 import SwiftUI
 import Inject
 
-struct Number4x4Field<T: SIMDScalar>: View {
+struct Number4x4Field: View {
   @ObserveInjection private var inject
   
   let label: String
   
-  @Binding var c0: SIMD4<T>
-  @Binding var c1: SIMD4<T>
-  @Binding var c2: SIMD4<T>
-  @Binding var c3: SIMD4<T>
+  @Binding var matrix: float4x4
   
   var body: some View {
     VStack(alignment: .leading, spacing: label.isEmpty ? 0 : 6) {
       Text(label)
-      HStack {
-        VStack {
-          NumberField(value: $c0[0])
-          NumberField(value: $c0[1])
-          NumberField(value: $c0[2])
-          NumberField(value: $c0[3])
+      VStack {
+        HStack {
+          NumberField(value: $matrix[0][0])
+          NumberField(value: $matrix[0][1])
+          NumberField(value: $matrix[0][2])
+          NumberField(value: $matrix[0][3])
         }
-        VStack {
-          NumberField(value: $c1[0])
-          NumberField(value: $c1[1])
-          NumberField(value: $c1[2])
-          NumberField(value: $c1[3])
+        HStack {
+          NumberField(value: $matrix[1][0])
+          NumberField(value: $matrix[1][1])
+          NumberField(value: $matrix[1][2])
+          NumberField(value: $matrix[1][3])
         }
-        VStack {
-          NumberField(value: $c2[0])
-          NumberField(value: $c2[1])
-          NumberField(value: $c2[2])
-          NumberField(value: $c2[3])
+        HStack {
+          NumberField(value: $matrix[2][0])
+          NumberField(value: $matrix[2][1])
+          NumberField(value: $matrix[2][2])
+          NumberField(value: $matrix[2][3])
         }
-        VStack {
-          NumberField(value: $c3[0])
-          NumberField(value: $c3[1])
-          NumberField(value: $c3[2])
-          NumberField(value: $c3[3])
+        HStack {
+          NumberField(value: $matrix[3][0])
+          NumberField(value: $matrix[3][1])
+          NumberField(value: $matrix[3][2])
+          NumberField(value: $matrix[3][3])
         }
       }
     }
@@ -52,8 +49,8 @@ struct Number4x4Field<T: SIMDScalar>: View {
   }
 }
 
-//struct Number4x4Field_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Number4x4Field()
-//    }
-//}
+struct Number4x4Field_Previews: PreviewProvider {
+    static var previews: some View {
+      Number4x4Field(label: "Test", matrix: .constant(.identity))
+    }
+}
