@@ -205,3 +205,10 @@ extension float4 {
     self = [Float(d.x), Float(d.y), Float(d.z), Float(d.w)]
   }
 }
+
+func modelFrom(trans: float3, rot: float3, scale: float3) -> matrix_float4x4 {
+  let translation = float4x4(translation: trans)
+  let rotation = float4x4(rotation: rot)
+  let scale = float4x4(scaling: scale)
+  return translation * rotation * scale
+}

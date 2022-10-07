@@ -2,68 +2,75 @@
 using namespace metal;
 #import "Common.h"
 #import "Lighting.h"
-
-struct VertexIn {
-  float4 position [[attribute(Position)]];
-  float3 normal [[attribute(Normal)]];
-  float2 uv [[attribute(UV)]];
-  float3 color [[attribute(Color)]];
-};
-
-struct VertexOut {
-  float4 position [[position]];
-  float2 uv;
-  float3 color;
-  float3 worldPosition;
-  float3 worldNormal;
-};
+#import "Vertex.h"
 
 vertex VertexOut vertex_main(
-                             VertexIn in [[stage_in]],
-                             constant Uniforms &uniforms [[buffer(UniformsBuffer)]]
-                             )
+  const VertexIn in [[stage_in]],
+  constant Uniforms &uniforms [[buffer(UniformsBuffer)]])
 {
   float4 position =
-  uniforms.projectionMatrix * uniforms.viewMatrix * uniforms.modelMatrix * in.position;
-  
+    uniforms.projectionMatrix * uniforms.viewMatrix
+    * uniforms.modelMatrix * in.position;
   VertexOut out {
     .position = position,
     .uv = in.uv,
     .color = in.color,
     .worldPosition = (uniforms.modelMatrix * in.position).xyz,
-    .worldNormal = uniforms.normalMatrix * in.normal
+    .worldNormal = uniforms.normalMatrix * in.normal,
+    .worldTangent = uniforms.normalMatrix * in.tangent,
+    .worldBitangent = uniforms.normalMatrix * in.bitangent,
+    .shadowPosition =
+      uniforms.shadowProjectionMatrix * uniforms.shadowViewMatrix
+      * uniforms.modelMatrix * in.position
   };
+//  out.clip_distance[0] =
+//    dot(uniforms.modelMatrix * in.position, uniforms.clipPlane);
   return out;
 }
 
 fragment float4 fragment_main(
-                              VertexOut in [[stage_in]],
-                              constant Params &params [[buffer(ParamsBuffer)]],
-                              constant Light *lights [[buffer(LightBuffer)]],
-                              texture2d<float> baseColorTexture [[texture(BaseColor)]]
-                              )
+  constant Params &params [[buffer(ParamsBuffer)]],
+  constant Light *lights [[buffer(LightBuffer)]],
+  FragmentIn in [[stage_in]],
+  constant Material &_material [[buffer(MaterialBuffer)]],
+  texture2d<float> baseColorTexture [[texture(BaseColor)]],
+  texture2d<float> normalTexture [[texture(NormalTexture)]],
+  depth2d<float> shadowTexture [[texture(ShadowTexture)]])
 {
   constexpr sampler textureSampler(
     filter::linear,
+    address::repeat,
     mip_filter::linear,
-    max_anisotropy(8),
-    address::repeat);
-  
-  float3 baseColor;
-  if (is_null_texture(baseColorTexture)) {
-    baseColor = in.color;
-  } else {
-    baseColor = baseColorTexture.sample(
+    max_anisotropy(8));
+
+  Material material = _material;
+  if (!is_null_texture(baseColorTexture)) {
+    material.baseColor = baseColorTexture.sample(
     textureSampler,
     in.uv * params.tiling).rgb;
   }
-  float3 normalDirection = normalize(in.worldNormal);
+  float3 normal;
+  if (is_null_texture(normalTexture)) {
+    normal = in.worldNormal;
+  } else {
+    normal = normalTexture.sample(
+    textureSampler,
+    in.uv * params.tiling).rgb;
+    normal = normal * 2 - 1;
+    normal = float3x3(
+      in.worldTangent,
+      in.worldBitangent,
+      in.worldNormal) * normal;
+  }
+  normal = normalize(normal);
+
   float3 color = phongLighting(
-    normalDirection,
+    normal,
     in.worldPosition,
     params,
     lights,
-    baseColor
+    material
   );
+  color *= calculateShadow(in.shadowPosition, shadowTexture);
   return float4(color, 1);
 }

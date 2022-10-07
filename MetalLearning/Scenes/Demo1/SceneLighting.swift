@@ -1,4 +1,4 @@
-import Foundation
+import MetalKit
 
 struct SceneLighting {
   static func buildDefaultLight() -> Light {
@@ -46,11 +46,22 @@ struct SceneLighting {
   }()
 
   var lights: [Light] = []
+  var lightsBuffer: MTLBuffer?
 
   init() {
     lights.append(sunlight)
     lights.append(ambientLight)
-    lights.append(redLight)
-    lights.append(spotlight)
+//    lights.append(redLight)
+//    lights.append(spotlight)
+    
+    lightsBuffer = Self.createBuffer(lights: lights)
+  }
+  
+  static func createBuffer(lights: [Light]) -> MTLBuffer {
+    var lights = lights
+    return Renderer.device.makeBuffer(
+      bytes: &lights,
+      length: MemoryLayout<Light>.stride * lights.count,
+      options: [])!
   }
 }
