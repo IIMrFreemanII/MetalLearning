@@ -23,6 +23,8 @@
 		1586EFE628DB8E54004B4C66 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586EFE528DB8E54004B4C66 /* Entity.swift */; };
 		1586EFE828DBA088004B4C66 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1586EFE728DBA088004B4C66 /* System.swift */; };
 		15A3592328F0A377004AB097 /* toy_biplane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 15A3592228F0A377004AB097 /* toy_biplane.usdz */; };
+		15A3592528F0A706004AB097 /* ico-sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 15A3592428F0A706004AB097 /* ico-sphere.obj */; };
+		15A3592728F153FA004AB097 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 15A3592628F153FA004AB097 /* cube.obj */; };
 		15D3E75E28D6F96B006EC224 /* Number1Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3E75D28D6F96B006EC224 /* Number1Field.swift */; };
 		15FD5B1F28A7B70A001F3ADF /* MetalLearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B1E28A7B70A001F3ADF /* MetalLearningApp.swift */; };
 		15FD5B2128A7B70A001F3ADF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FD5B2028A7B70A001F3ADF /* ContentView.swift */; };
@@ -83,6 +85,8 @@
 		1586EFE528DB8E54004B4C66 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		1586EFE728DBA088004B4C66 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
 		15A3592228F0A377004AB097 /* toy_biplane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane.usdz; sourceTree = "<group>"; };
+		15A3592428F0A706004AB097 /* ico-sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "ico-sphere.obj"; sourceTree = "<group>"; };
+		15A3592628F153FA004AB097 /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		15D3E75D28D6F96B006EC224 /* Number1Field.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number1Field.swift; sourceTree = "<group>"; };
 		15FD5B1B28A7B70A001F3ADF /* MetalLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15FD5B1E28A7B70A001F3ADF /* MetalLearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalLearningApp.swift; sourceTree = "<group>"; };
@@ -324,7 +328,9 @@
 		15FD5B9E28AC2704001F3ADF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				15A3592628F153FA004AB097 /* cube.obj */,
 				15A3592228F0A377004AB097 /* toy_biplane.usdz */,
+				15A3592428F0A706004AB097 /* ico-sphere.obj */,
 				157DD16528AE6D5700E80721 /* Sphere */,
 				15FD5B9F28AC2704001F3ADF /* Textures */,
 				15FD5BA228AC2704001F3ADF /* Ground */,
@@ -426,6 +432,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15A3592728F153FA004AB097 /* cube.obj in Resources */,
 				15FD5B2628A7B70A001F3ADF /* Preview Assets.xcassets in Resources */,
 				15FD5BB028AC2704001F3ADF /* lowpoly-house.obj in Resources */,
 				157DD16928AE6D5700E80721 /* sphere.mtl in Resources */,
@@ -434,6 +441,7 @@
 				15FD5BAD28AC2704001F3ADF /* plane.mtl in Resources */,
 				15A3592328F0A377004AB097 /* toy_biplane.usdz in Resources */,
 				15FD5BAC28AC2704001F3ADF /* plane.obj in Resources */,
+				15A3592528F0A706004AB097 /* ico-sphere.obj in Resources */,
 				15FD5BAF28AC2704001F3ADF /* lowpoly-house-color.png in Resources */,
 				15FD5BB128AC2704001F3ADF /* lowpoly-house.mtl in Resources */,
 				15FD5B2328A7B70A001F3ADF /* Assets.xcassets in Resources */,
