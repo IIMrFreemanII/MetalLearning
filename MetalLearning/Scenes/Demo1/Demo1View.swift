@@ -13,7 +13,7 @@ struct Demo1View: View {
   @ObservedObject private var scene = Demo1ViewRenderer()
   
   var body: some View {
-    print("update")
+//    print("update")
     return NavigationView {
       List {
         Section("Data") {
@@ -32,13 +32,13 @@ struct Demo1View: View {
                 }
               )
           )
-//          Number4x4Field(
-//            label: "Model matrix",
-//            matrix: $scene.uniforms.modelMatrix
-//          )
-//          Number3Field(label: "Position", value: $scene.sphere.position)
-//          Number3Field(label: "Rotation", value: $scene.sphere.rotation)
-//          Number1Field(label: "Scale", value: $scene.sphere.scale)
+          Number4x4Field(
+            label: "Model matrix",
+            matrix: $scene.uniforms.viewMatrix
+          )
+          Number3Field(label: "Position", value: $scene.camera.position)
+          Number3Field(label: "Rotation", value: $scene.camera.rotation)
+          Number1Field(label: "Scale", value: $scene.camera.scale)
         }
       }
       .listStyle(.sidebar)

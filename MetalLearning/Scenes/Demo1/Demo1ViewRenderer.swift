@@ -23,12 +23,12 @@ class Demo1ViewRenderer : ViewRenderer {
 //  lazy var sphere: Model = {
 //    Model(name: "toy_biplane.usdz")
 //  }()
-//  lazy var sphere: Model = {
-//    Model(name: "ico-sphere.obj")
-//  }()
   lazy var sphere: Model = {
-    Model(name: "cube.obj")
+    Model(name: "ico-sphere.obj")
   }()
+//  lazy var sphere: Model = {
+//    Model(name: "cube.obj")
+//  }()
   lazy var models: [Model] = [sphere]
   
   // -

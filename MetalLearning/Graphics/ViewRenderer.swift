@@ -7,6 +7,10 @@ class ViewRenderer: NSObject, ObservableObject {
   override init() {
     super.init()
     
+    Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { timer in
+      self.objectWillChange.send();
+    }
+    
 //    let center = NotificationCenter.default
 //    center.addObserver(
 //      forName: .GCKeyboardDidConnect,
